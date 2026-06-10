@@ -287,7 +287,7 @@ export const zh: SiteContent = {
   portfolio: {
     title: "我们的作品",
     subtitle: "遍布新加坡、超过 400 个家——每一个都围绕居住其中的人而打造。",
-    filters: ["全部", "组屋", "BTO", "公寓", "有地住宅"],
+    filters: ["全部", "组屋", "公寓", "有地住宅"],
     captionPrefix: "项目",
     cta: {
       heading: "喜欢你所看到的吗？",

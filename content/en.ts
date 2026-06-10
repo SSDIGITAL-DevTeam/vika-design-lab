@@ -303,7 +303,7 @@ export const en: SiteContent = {
     title: "Our Work",
     subtitle:
       "Over 400 homes designed across Singapore — each one built around the people who live in it.",
-    filters: ["All", "HDB", "BTO", "Condo", "Landed"],
+    filters: ["All", "HDB", "Condo", "Landed"],
     captionPrefix: "Project",
     cta: {
       heading: "Like what you see?",

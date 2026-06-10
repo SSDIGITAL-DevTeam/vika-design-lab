@@ -1,29 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
-// Placeholder projects until the client's real photos arrive.
-// `cat` indexes into the localized filter labels (1=HDB, 2=BTO, 3=Condo, 4=Landed).
-const PROJECTS: { id: number; cat: number; tall?: boolean }[] = [
-  { id: 1, cat: 1, tall: true },
-  { id: 2, cat: 3 },
-  { id: 3, cat: 2 },
-  { id: 4, cat: 4, tall: true },
-  { id: 5, cat: 1 },
-  { id: 6, cat: 3, tall: true },
-  { id: 7, cat: 2 },
-  { id: 8, cat: 1 },
-  { id: 9, cat: 4 },
-  { id: 10, cat: 3 },
-  { id: 11, cat: 2, tall: true },
-  { id: 12, cat: 1 },
-];
-
-// Rotating placeholder tints kept within the brand palette.
-const TINTS = [
-  "bg-paper-2 text-muted",
-  "bg-ink text-paper",
-  "bg-yellow text-ink",
+// `cat` indexes into localized filter labels (1=HDB, 2=Condo, 3=Landed).
+const PROJECTS: { id: number; cat: number; image: string; tall?: boolean }[] = [
+  { id: 1, cat: 1, image: "/assets/portfolio/hdb/hdb1.jpg", tall: true },
+  { id: 2, cat: 1, image: "/assets/portfolio/hdb/hdb2.jpg" },
+  { id: 3, cat: 1, image: "/assets/portfolio/hdb/hdb3.jpg" },
+  { id: 4, cat: 1, image: "/assets/portfolio/hdb/hdb4.jpg" },
+  { id: 5, cat: 2, image: "/assets/portfolio/condo/condo1.jpg" },
+  { id: 6, cat: 2, image: "/assets/portfolio/condo/condo2.jpg", tall: true },
+  { id: 7, cat: 2, image: "/assets/portfolio/condo/condo3.jpg" },
+  { id: 8, cat: 2, image: "/assets/portfolio/condo/condo4.jpg" },
+  { id: 9, cat: 3, image: "/assets/portfolio/landed/landed1.jpg" },
+  { id: 10, cat: 3, image: "/assets/portfolio/landed/landed2.jpg", tall: true },
+  { id: 11, cat: 3, image: "/assets/portfolio/landed/landed3.jpg" },
+  { id: 12, cat: 3, image: "/assets/portfolio/landed/landed4.jpg" },
 ];
 
 export function PortfolioGrid({
@@ -62,23 +55,32 @@ export function PortfolioGrid({
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3">
-        {visible.map((p, i) => (
+        {visible.map((p) => (
           <figure
             key={p.id}
-            className={`group overflow-hidden rounded-[var(--radius)] ${
+            className={`group relative overflow-hidden rounded-[var(--radius)] bg-paper-2 ${
               p.tall ? "row-span-2" : ""
             }`}
           >
             <div
-              className={`flex h-full min-h-[180px] flex-col justify-between p-4 transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:group-hover:scale-100 ${
-                TINTS[i % TINTS.length]
-              } ${p.tall ? "min-h-[380px]" : "sm:min-h-[240px]"}`}
+              className={`relative h-full min-h-[180px] overflow-hidden ${
+                p.tall ? "min-h-[380px]" : "sm:min-h-[240px]"
+              }`}
             >
-              <span className="font-mono text-xs uppercase tracking-widest opacity-80">
-                {String(p.id).padStart(2, "0")}
-              </span>
-              <figcaption className="text-sm font-medium">
-                {captionPrefix} {String(p.id).padStart(2, "0")} · {filters[p.cat]}
+              <Image
+                src={p.image}
+                alt={`${captionPrefix} ${String(p.id).padStart(2, "0")} · ${filters[p.cat]}`}
+                fill
+                sizes="(min-width: 1024px) 33vw, 50vw"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-linear-to-t from-black/75 via-black/35 to-transparent p-4 pt-12 text-paper">
+                <span className="text-sm font-medium">
+                  {captionPrefix} {String(p.id).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-xs uppercase tracking-widest opacity-80">
+                  {filters[p.cat]}
+                </span>
               </figcaption>
             </div>
           </figure>
