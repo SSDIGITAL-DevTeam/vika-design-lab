@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/*
+  Vika Design Lab — brand theme.
+  Palette is locked to Black · White · Bright Yellow.
+  Yellow is an accent/CTA/block colour only and always carries near-black text
+  (yellow-on-white text fails contrast and is never used).
+*/
+@theme {
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #2a2a2a;
+  --color-muted: #5c5c5c;
+  --color-line: #e4e4e4;
+  --color-paper: #ffffff;
+  --color-paper-2: #f5f5f5;
+  --color-yellow: #ffd400;
+  --color-yellow-deep: #e6bf00;
+
+  /* Font families are bound to next/font CSS variables in the layout. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-label), ui-monospace, monospace;
+  --font-display: var(--font-archivo), var(--font-inter), sans-serif;
+  --font-cjk: var(--font-noto-sc), var(--font-inter), sans-serif;
+}
+
+/* Per-design tokens — switched by the data-design attribute on <html>. */
+[data-design="v1"] {
+  --radius: 0px;
+  --section-y: 5rem; /* 80px */
+  --container: 72rem; /* 1152px */
+}
+
+[data-design="v2"] {
+  --radius: 1.5rem;
+  --section-y: 7rem; /* 112px */
+  --container: 80rem; /* 1280px */
+}
+
+@media (max-width: 639px) {
+  [data-design="v1"],
+  [data-design="v2"] {
+    --section-y: 3rem;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Chinese pages get the CJK stack while keeping Latin numerals crisp. */
+:lang(zh) body {
+  font-family: var(--font-cjk);
+}
+
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+}
+
+/* Visible, consistent keyboard focus across both designs. */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+[data-design="v2"] :focus-visible {
+  outline-color: var(--color-yellow-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Shared container helper used by both designs. */
+@utility container-page {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ─── Animation keyframes ──────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes image-zoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1); }
+}
+@keyframes draw-line {
+  from { width: 0; opacity: 0; }
+  to   { width: 6rem; opacity: 1; }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-fade-in {
+  animation: fade-in 0.55s ease both;
+}
+@utility animate-image-zoom {
+  animation: image-zoom 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
+}
+@utility animate-draw-line {
+  animation: draw-line 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Mobile nav open animation ────────────────────────────── */
+@keyframes nav-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@utility animate-nav-open {
+  animation: nav-open 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Scroll-reveal (driven by Reveal client component) ────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
