@@ -33,7 +33,6 @@ export const pagePath = (
   return page === "home" ? base : `${base}/${page}`;
 };
 
-/** Pre-filled WhatsApp click-to-chat link. */
 export const buildWhatsAppLink = (message: string): string =>
   `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;
 
