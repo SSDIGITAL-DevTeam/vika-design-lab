@@ -11,6 +11,7 @@ import {
   Key,
   Leaf,
   ArrowRight,
+  ChevronDown,
   Phone,
   Mail,
   MapPin,
@@ -43,6 +44,7 @@ const ICONS: Record<string, LucideIcon> = {
 
   // UI / navigation
   arrow: ArrowRight,
+  chevron: ChevronDown,
   check: Check,
   menu: Menu,
   close: X,

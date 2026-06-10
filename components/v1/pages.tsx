@@ -391,9 +391,9 @@ export function Contact({ content }: ViewProps) {
       />
 
       <Section bordered className="pt-10!">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-[1fr_1.3fr]">
           {/* Details */}
-          <div>
+          <Reveal>
             <Eyebrow>{contact.detailsHeading}</Eyebrow>
             <p className="mt-4 text-base text-muted">{contact.detailsNote}</p>
             <ul className="mt-6 space-y-4">
@@ -419,62 +419,70 @@ export function Contact({ content }: ViewProps) {
                 {contact.hoursValue}
               </ContactRow>
             </ul>
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <div className="border border-line p-7">
-            <h2 className="text-2xl font-semibold text-ink">
-              {contact.form.heading}
-            </h2>
-            <p className="mt-2 text-sm text-muted">{contact.form.sub}</p>
-            <div className="mt-6">
-              <EnquiryForm
-                form={contact.form}
-                whatsappMessage={common.whatsappPrefill}
-              />
+          <Reveal delay={120}>
+            <div className="border border-line p-5 sm:p-7">
+              <h2 className="text-xl font-semibold text-ink sm:text-2xl">
+                {contact.form.heading}
+              </h2>
+              <p className="mt-2 text-sm text-muted">{contact.form.sub}</p>
+              <div className="mt-6">
+                <EnquiryForm
+                  form={contact.form}
+                  whatsappMessage={common.whatsappPrefill}
+                />
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       {/* Reassurance */}
       <Section bordered>
         <div className="grid gap-8 md:grid-cols-[1.3fr_1fr]">
-          <p className="text-xl leading-relaxed text-ink-soft">
-            {contact.reassurance.body}
-          </p>
-          <ul className="space-y-3">
-            {contact.reassurance.icons.map((line) => (
-              <li
-                key={line}
-                className="flex items-start gap-3 border border-line p-4"
-              >
-                <Icon
-                  name="check"
-                  className="mt-0.5 h-5 w-5 shrink-0 text-yellow-deep"
-                />
-                <span className="text-sm font-medium text-ink">{line}</span>
-              </li>
-            ))}
-          </ul>
+          <Reveal>
+            <p className="text-lg leading-relaxed text-ink-soft sm:text-xl">
+              {contact.reassurance.body}
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <ul className="space-y-3">
+              {contact.reassurance.icons.map((line) => (
+                <li
+                  key={line}
+                  className="flex items-start gap-3 border border-line p-4"
+                >
+                  <Icon
+                    name="check"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-yellow-deep"
+                  />
+                  <span className="text-sm font-medium text-ink">{line}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </Section>
 
       {/* Map */}
       <Section bordered>
-        <Eyebrow>{contact.map.heading}</Eyebrow>
-        <div className="mt-6 overflow-hidden border border-line">
-          <iframe
-            title={contact.map.heading}
-            src={mapsEmbedSrc()}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-90 w-full"
-          />
-        </div>
-        <p className="mt-4 max-w-2xl text-sm text-muted">
-          {contact.map.directions}
-        </p>
+        <Reveal>
+          <Eyebrow>{contact.map.heading}</Eyebrow>
+          <div className="mt-6 overflow-hidden border border-line">
+            <iframe
+              title={contact.map.heading}
+              src={mapsEmbedSrc()}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-72 w-full sm:h-90"
+            />
+          </div>
+          <p className="mt-4 max-w-2xl text-sm text-muted">
+            {contact.map.directions}
+          </p>
+        </Reveal>
       </Section>
     </>
   );

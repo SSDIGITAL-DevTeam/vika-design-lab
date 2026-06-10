@@ -63,14 +63,14 @@ export function StoryTimeline({
               }}
               className="relative pl-12 sm:pl-14"
             >
-              {/* Per-article dot — snaps to each card as you scroll */}
+              {/* Per-article dot */}
               <span
-                className={`pointer-events-none absolute left-1.75 top-0.5 z-20 h-5 w-5 rounded-full border-2 transition-all duration-500 ease-out ${
+                className={`pointer-events-none absolute left-2.5 top-1 z-20 h-3 w-3 rounded-full border transition-all duration-400 ${
                   isActive
-                    ? "scale-125 border-yellow bg-yellow shadow-[0_0_0_5px_rgba(255,212,0,0.2)]"
+                    ? "border-yellow bg-yellow"
                     : isPast
-                    ? "scale-100 border-yellow bg-yellow"
-                    : "scale-90 border-line bg-paper"
+                    ? "border-yellow bg-yellow opacity-50"
+                    : "border-ink/30 bg-paper"
                 }`}
               />
 
@@ -80,18 +80,10 @@ export function StoryTimeline({
               </p>
 
               {/* Card */}
-              <div
-                className={`border bg-paper transition-all duration-500 ${
-                  isActive ? "border-yellow/40" : "border-line"
-                }`}
-              >
+              <div className="border border-line bg-paper">
                 <div
-                  className={`border-l-4 p-4 sm:p-6 transition-colors duration-500 ${
-                    isActive
-                      ? "border-yellow"
-                      : isPast
-                      ? "border-yellow/30"
-                      : "border-line"
+                  className={`border-l-2 p-4 sm:p-6 transition-colors duration-400 ${
+                    isActive ? "border-yellow" : isPast ? "border-yellow/40" : "border-line"
                   }`}
                 >
                   <p

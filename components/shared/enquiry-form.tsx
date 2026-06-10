@@ -1,74 +1,140 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { SiteContent } from "@/content/types";
-import { buildWhatsAppLink } from "@/lib/site";
 import { Icon } from "./icons";
 
 type FormState = Record<string, string>;
 
-const fieldClass =
-  "mt-1.5 w-full rounded-[var(--radius)] border border-line bg-paper px-3.5 py-2.5 text-ink outline-none transition-colors duration-200 placeholder:text-muted/70 focus:border-ink";
-const labelClass = "block text-sm font-medium text-ink-soft";
+const inputClass =
+  "mt-1.5 w-full border border-line bg-paper px-3.5 py-2.5 text-sm text-ink outline-none transition-colors duration-200 placeholder:text-muted/60 focus:border-ink";
+const labelClass = "block text-xs font-medium uppercase tracking-wider text-muted";
+const errorClass = "mt-1 text-xs text-yellow-deep";
 
-/**
- * Client-side enquiry form. No backend yet (per project scope): a valid submit
- * shows a confirmation and a WhatsApp fallback. Name + phone are required.
- */
+// Custom dropdown — replaces native <select>
+function SelectField({
+  label,
+  id,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  id: string;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onOutside);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("mousedown", onOutside);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative">
+      <label htmlFor={id} className={labelClass}>
+        {label}
+      </label>
+      <button
+        type="button"
+        id={id}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className={`mt-1.5 flex w-full cursor-pointer items-center justify-between border bg-paper px-3.5 py-2.5 text-left text-sm transition-colors duration-200 ${
+          open ? "border-ink" : "border-line"
+        } ${value ? "text-ink" : "text-muted/60"}`}
+      >
+        <span>{value || "—"}</span>
+        <Icon
+          name="chevron"
+          className={`h-4 w-4 shrink-0 text-muted transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
+          strokeWidth={1.5}
+        />
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute left-0 right-0 top-full z-40 border border-t-0 border-ink bg-paper py-1 shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+        >
+          {options.map((o) => (
+            <li key={o} role="option" aria-selected={value === o}>
+              <button
+                type="button"
+                onClick={() => {
+                  onChange(o);
+                  setOpen(false);
+                }}
+                className={`w-full px-3.5 py-2.5 text-left text-sm transition-colors duration-150 hover:bg-paper-2 ${
+                  value === o ? "font-medium text-ink" : "text-ink-soft"
+                }`}
+              >
+                {o}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 export function EnquiryForm({
   form,
-  whatsappMessage,
 }: {
   form: SiteContent["contact"]["form"];
   whatsappMessage: string;
 }) {
   const uid = useId();
   const [values, setValues] = useState<FormState>({});
-  const [errors, setErrors] = useState<Record<string, boolean>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const set = (key: string, v: string) =>
+  const set = (key: string, v: string) => {
     setValues((prev) => ({ ...prev, [key]: v }));
+    // Clear error on change
+    if (errors[key]) setErrors((prev) => ({ ...prev, [key]: "" }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const nextErrors: Record<string, boolean> = {
-      name: !values.name?.trim(),
-      phone: !values.phone?.trim(),
-    };
-    setErrors(nextErrors);
-    if (Object.values(nextErrors).some(Boolean)) return;
-    setSubmitted(true);
-  };
+    const nextErrors: Record<string, string> = {};
 
-  if (submitted) {
-    return (
-      <div className="rounded-[var(--radius)] border border-ink bg-yellow/15 p-6">
-        <div className="flex items-start gap-3">
-          <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-paper">
-            <Icon name="check" className="h-5 w-5" />
-          </span>
-          <div>
-            <p className="text-ink">{form.success}</p>
-            <a
-              href={buildWhatsAppLink(whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex min-h-[44px] items-center gap-2 rounded-[var(--radius)] bg-ink px-5 text-sm font-semibold text-paper transition-colors duration-200 hover:bg-ink-soft"
-            >
-              <Icon name="whatsapp" className="h-4 w-4" />
-              {form.whatsappCta}
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  }
+    if (!values.name?.trim()) nextErrors.name = form.errorRequired;
+    if (!values.phone?.trim()) nextErrors.phone = form.errorRequired;
+    if (
+      values.email?.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)
+    ) {
+      nextErrors.email = "Please enter a valid email address.";
+    }
+
+    setErrors(nextErrors);
+    // Button validates only — no submission or success state for now
+  };
 
   const reqMark = <span className="text-yellow-deep"> *</span>;
 
   return (
-    <form noValidate onSubmit={handleSubmit} className="space-y-5">
+    <form noValidate onSubmit={handleSubmit} className="space-y-4">
+      {/* Name */}
       <div>
         <label htmlFor={`${uid}-name`} className={labelClass}>
           {form.name.label}
@@ -80,17 +146,16 @@ export function EnquiryForm({
           type="text"
           autoComplete="name"
           placeholder={form.name.placeholder}
-          aria-invalid={errors.name || undefined}
-          className={fieldClass}
+          aria-invalid={!!errors.name || undefined}
+          className={`${inputClass} ${errors.name ? "border-yellow-deep" : ""}`}
           value={values.name ?? ""}
           onChange={(e) => set("name", e.target.value)}
         />
-        {errors.name && (
-          <p className="mt-1 text-sm text-yellow-deep">{form.errorRequired}</p>
-        )}
+        {errors.name && <p className={errorClass}>{errors.name}</p>}
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      {/* Phone + Email */}
+      <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor={`${uid}-phone`} className={labelClass}>
             {form.phone.label}
@@ -102,16 +167,12 @@ export function EnquiryForm({
             type="tel"
             autoComplete="tel"
             placeholder={form.phone.placeholder}
-            aria-invalid={errors.phone || undefined}
-            className={fieldClass}
+            aria-invalid={!!errors.phone || undefined}
+            className={`${inputClass} ${errors.phone ? "border-yellow-deep" : ""}`}
             value={values.phone ?? ""}
             onChange={(e) => set("phone", e.target.value)}
           />
-          {errors.phone && (
-            <p className="mt-1 text-sm text-yellow-deep">
-              {form.errorRequired}
-            </p>
-          )}
+          {errors.phone && <p className={errorClass}>{errors.phone}</p>}
         </div>
         <div>
           <label htmlFor={`${uid}-email`} className={labelClass}>
@@ -123,54 +184,34 @@ export function EnquiryForm({
             type="email"
             autoComplete="email"
             placeholder={form.email.placeholder}
-            className={fieldClass}
+            aria-invalid={!!errors.email || undefined}
+            className={`${inputClass} ${errors.email ? "border-yellow-deep" : ""}`}
             value={values.email ?? ""}
             onChange={(e) => set("email", e.target.value)}
           />
+          {errors.email && <p className={errorClass}>{errors.email}</p>}
         </div>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor={`${uid}-property`} className={labelClass}>
-            {form.propertyType.label}
-          </label>
-          <select
-            id={`${uid}-property`}
-            name="propertyType"
-            className={fieldClass}
-            value={values.propertyType ?? ""}
-            onChange={(e) => set("propertyType", e.target.value)}
-          >
-            <option value="">—</option>
-            {form.propertyType.options?.map((o) => (
-              <option key={o} value={o}>
-                {o}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor={`${uid}-budget`} className={labelClass}>
-            {form.budget.label}
-          </label>
-          <select
-            id={`${uid}-budget`}
-            name="budget"
-            className={fieldClass}
-            value={values.budget ?? ""}
-            onChange={(e) => set("budget", e.target.value)}
-          >
-            <option value="">—</option>
-            {form.budget.options?.map((o) => (
-              <option key={o} value={o}>
-                {o}
-              </option>
-            ))}
-          </select>
-        </div>
+      {/* Property + Budget */}
+      <div className="grid gap-4 sm:grid-cols-2">
+        <SelectField
+          label={form.propertyType.label}
+          id={`${uid}-property`}
+          options={form.propertyType.options ?? []}
+          value={values.propertyType ?? ""}
+          onChange={(v) => set("propertyType", v)}
+        />
+        <SelectField
+          label={form.budget.label}
+          id={`${uid}-budget`}
+          options={form.budget.options ?? []}
+          value={values.budget ?? ""}
+          onChange={(v) => set("budget", v)}
+        />
       </div>
 
+      {/* Message */}
       <div>
         <label htmlFor={`${uid}-message`} className={labelClass}>
           {form.message.label}
@@ -180,15 +221,16 @@ export function EnquiryForm({
           name="message"
           rows={4}
           placeholder={form.message.placeholder}
-          className={`${fieldClass} resize-y`}
+          className={`${inputClass} resize-y`}
           value={values.message ?? ""}
           onChange={(e) => set("message", e.target.value)}
         />
       </div>
 
+      {/* Submit */}
       <button
         type="submit"
-        className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-[var(--radius)] bg-ink px-6 font-semibold text-paper transition-colors duration-200 hover:bg-ink-soft sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-ink px-6 text-sm font-semibold text-paper transition-colors duration-200 hover:bg-ink-soft sm:w-auto"
       >
         {form.submit}
         <Icon name="arrow" className="h-4 w-4" />
