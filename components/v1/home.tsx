@@ -150,13 +150,13 @@ export function Home({ content, design, lang }: ViewProps) {
         <Reveal>
           <div className="mb-10">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              Our Difference
+              {home.usp.eyebrow}
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
               {home.usp.heading}
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-              Six reasons Singapore homeowners consistently choose Vika — and come back for their next project.
+              {home.usp.sub}
             </p>
           </div>
         </Reveal>
@@ -218,20 +218,26 @@ export function Home({ content, design, lang }: ViewProps) {
       </Section>
 
       {/* ── Portfolio preview ────────────────────────────────── */}
-      <PortfolioPreview toPortfolio={toPortfolio} />
+      <PortfolioPreview
+        toPortfolio={toPortfolio}
+        eyebrow={home.portfolioPreview.eyebrow}
+        heading={home.portfolioPreview.heading}
+        sub={home.portfolioPreview.sub}
+        cta={home.portfolioPreview.cta}
+      />
 
       {/* ── Testimonials — each card staggers in ─────────────── */}
       <Section bordered>
         <Reveal>
           <div className="mb-10">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              Client Reviews
+              {home.testimonials.eyebrow}
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
               {home.testimonials.heading}
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-              Real words from real homeowners across Singapore. No scripts, no incentives — just what they told us after moving in.
+              {home.testimonials.sub}
             </p>
           </div>
         </Reveal>
@@ -261,7 +267,11 @@ export function Home({ content, design, lang }: ViewProps) {
       </Section>
 
       {/* ── Partner logos marquee ────────────────────────────── */}
-      <PartnerMarquee />
+      <PartnerMarquee
+        eyebrow={home.partners.eyebrow}
+        heading={home.partners.heading}
+        sub={home.partners.sub}
+      />
 
       {/* ── End CTA ──────────────────────────────────────────── */}
       <CtaSection

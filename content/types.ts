@@ -50,6 +50,18 @@ export interface SpecialityService {
   body: string;
 }
 
+export interface MaterialsSpec {
+  icon: string;
+  title: string;
+  body: string;
+}
+
+export interface PaymentMilestone {
+  step: string;
+  title: string;
+  desc: string;
+}
+
 export interface Designer {
   name: string;
   role: string;
@@ -95,13 +107,34 @@ export interface SiteContent {
     cta: CtaPair;
     stats: Stat[];
     intro: { heading: string; body: string[] };
-    usp: { heading: string; cards: UspCard[] };
+    usp: {
+      eyebrow: string;
+      heading: string;
+      sub: string;
+      cards: UspCard[];
+    };
     servicesOverview: {
       heading: string;
       tiles: ServiceTile[];
       cta: string;
     };
-    testimonials: { heading: string; items: Testimonial[] };
+    portfolioPreview: {
+      eyebrow: string;
+      heading: string;
+      sub: string;
+      cta: string;
+    };
+    testimonials: {
+      eyebrow: string;
+      heading: string;
+      sub: string;
+      items: Testimonial[];
+    };
+    partners: {
+      eyebrow: string;
+      heading: string;
+      sub: string;
+    };
     trust: { heading: string; badges: Badge[] };
   };
 
@@ -126,17 +159,24 @@ export interface SiteContent {
   services: {
     title: string;
     subtitle: string;
+    coreEyebrow: string;
     coreHeading: string;
+    coreSub: string;
     core: CoreService[];
+    specialityEyebrow: string;
     specialityHeading: string;
     specialityIntro: string;
     speciality: SpecialityService[];
-    materials: { heading: string; body: string[] };
+    materialsEyebrow: string;
+    materials: { heading: string; sub: string; body: string[]; specs: MaterialsSpec[] };
+    pricingEyebrow: string;
     payment: {
       heading: string;
+      sub: string;
       body: string;
       refundQuote: string;
       refundNote: string;
+      milestones: PaymentMilestone[];
     };
     cta: { heading: string; sub: string } & CtaPair;
   };

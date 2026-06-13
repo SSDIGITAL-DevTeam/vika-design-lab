@@ -13,7 +13,15 @@ const PREVIEW = [
   { src: "/assets/portfolio/condo/condo2.jpg",     alt: "Condo bathroom — Vika Design Lab" },
 ];
 
-export function PortfolioPreview({ toPortfolio }: { toPortfolio: string }) {
+interface PortfolioPreviewProps {
+  toPortfolio: string;
+  eyebrow: string;
+  heading: string;
+  sub: string;
+  cta: string;
+}
+
+export function PortfolioPreview({ toPortfolio, eyebrow, heading, sub, cta }: PortfolioPreviewProps) {
   const [selected, setSelected] = useState<string | null>(null);
   // lastSrc persists the image src during the close animation so it doesn't
   // snap to blank while the overlay is still fading out.
@@ -48,14 +56,13 @@ export function PortfolioPreview({ toPortfolio }: { toPortfolio: string }) {
         <Reveal>
           <div className="mb-10">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              Selected Work
+              {eyebrow}
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
-              Homes we&apos;ve transformed across Singapore.
+              {heading}
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-              A selection of completed projects — HDB, condo, and landed — each
-              designed around the people who actually live in it.
+              {sub}
             </p>
           </div>
         </Reveal>
@@ -102,7 +109,7 @@ export function PortfolioPreview({ toPortfolio }: { toPortfolio: string }) {
         <Reveal delay={300}>
           <div className="mt-8">
             <CtaButton href={toPortfolio} variant="secondary">
-              Explore Full Portfolio
+              {cta}
             </CtaButton>
           </div>
         </Reveal>

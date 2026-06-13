@@ -7,19 +7,25 @@ const PARTNERS = Array.from({ length: 9 }, (_, i) => ({
   alt: `Partner ${i + 1}`,
 }));
 
-export function PartnerMarquee() {
+interface PartnerMarqueeProps {
+  eyebrow: string;
+  heading: string;
+  sub: string;
+}
+
+export function PartnerMarquee({ eyebrow, heading, sub }: PartnerMarqueeProps) {
   return (
     <div className="border-t border-line py-16">
       {/* Heading — contained */}
       <div className="container-page mb-10">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-          Trusted Partners
+          {eyebrow}
         </p>
         <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
-          The brands behind every project.
+          {heading}
         </h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-          We source from certified suppliers and industry-leading brands — so every surface, fixture, and finish meets our quality standard.
+          {sub}
         </p>
       </div>
 
