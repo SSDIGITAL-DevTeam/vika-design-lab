@@ -1,7 +1,7 @@
 // Design-variant + locale registry. Single source of truth for which
 // variants/locales exist, used by routing, generateStaticParams, and switchers.
 
-export const DESIGNS = ["v1", "v2"] as const;
+export const DESIGNS = ["v1"] as const;
 export type Design = (typeof DESIGNS)[number];
 
 export const LOCALES = ["en", "zh"] as const;
@@ -12,7 +12,6 @@ export const DEFAULT_LOCALE: Locale = "en";
 
 export const DESIGN_LABELS: Record<Design, string> = {
   v1: "Swiss Editorial",
-  v2: "Bold Minimal",
 };
 
 export const LOCALE_LABELS: Record<Locale, string> = {

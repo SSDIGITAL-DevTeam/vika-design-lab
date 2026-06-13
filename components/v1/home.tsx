@@ -5,6 +5,7 @@ import { CountUp } from "@/components/shared/count-up";
 import type { ViewProps } from "@/components/types";
 import { CtaButton, Section } from "./ui";
 import { CtaSection } from "./cta-section";
+import { PartnerMarquee } from "./partner-marquee";
 
 const STAT_ICONS = ["home", "clock", "shield"] as const;
 const REFUND_PHRASE = "guarantees a full refund";
@@ -146,9 +147,17 @@ export function Home({ content, design, lang }: ViewProps) {
       {/* ── USP grid — each card staggers in individually ─────── */}
       <Section bordered>
         <Reveal>
-          <h2 className="mx-auto mb-10 max-w-3xl text-center text-3xl font-semibold leading-tight text-ink sm:text-4xl">
-            {home.usp.heading}
-          </h2>
+          <div className="mb-10">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              Our Difference
+            </p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
+              {home.usp.heading}
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+              Six reasons Singapore homeowners consistently choose Vika — and come back for their next project.
+            </p>
+          </div>
         </Reveal>
         <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {home.usp.cards.map((card, i) => (
@@ -210,9 +219,17 @@ export function Home({ content, design, lang }: ViewProps) {
       {/* ── Testimonials — each card staggers in ─────────────── */}
       <Section bordered>
         <Reveal>
-          <h2 className="mx-auto mb-10 max-w-3xl text-center text-3xl font-semibold leading-tight text-ink sm:text-4xl">
-            {home.testimonials.heading}
-          </h2>
+          <div className="mb-10">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              Client Reviews
+            </p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
+              {home.testimonials.heading}
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+              Real words from real homeowners across Singapore. No scripts, no incentives — just what they told us after moving in.
+            </p>
+          </div>
         </Reveal>
         <div className="grid gap-px border border-line bg-line md:grid-cols-3">
           {home.testimonials.items.map((t, i) => (
@@ -238,6 +255,9 @@ export function Home({ content, design, lang }: ViewProps) {
           ))}
         </div>
       </Section>
+
+      {/* ── Partner logos marquee ────────────────────────────── */}
+      <PartnerMarquee />
 
       {/* ── End CTA ──────────────────────────────────────────── */}
       <CtaSection

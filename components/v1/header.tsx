@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_KEYS, pagePath } from "@/lib/site";
 import { Icon } from "@/components/shared/icons";
-import { LanguageSwitcher, DesignSwitcher } from "@/components/shared/switchers";
+import { LanguageSwitcher } from "@/components/shared/switchers";
 import type { ViewProps } from "@/components/types";
 
 export function Header({ content, design, lang }: ViewProps) {
@@ -59,10 +59,6 @@ export function Header({ content, design, lang }: ViewProps) {
 
         <div className="flex items-center gap-3">
           <LanguageSwitcher lang={lang} className="hidden items-center sm:flex" />
-          <DesignSwitcher
-            design={design}
-            className="hidden items-center border border-line sm:flex"
-          />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -104,10 +100,6 @@ export function Header({ content, design, lang }: ViewProps) {
             })}
             <div className="flex items-center justify-between py-3">
               <LanguageSwitcher lang={lang} className="flex items-center" />
-              <DesignSwitcher
-                design={design}
-                className="flex items-center border border-line"
-              />
             </div>
           </nav>
         </div>
