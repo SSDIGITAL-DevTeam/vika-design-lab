@@ -286,10 +286,8 @@ export function Services({ content, design, lang }: ViewProps) {
           {services.core.map((svc, i) => (
             <Reveal key={svc.title} delay={i * 100} className="bg-paper">
               <article className="h-full p-7">
-                <span className="font-mono text-xs text-yellow-deep">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-2 text-xl font-semibold text-ink">
+                <Icon name={svc.icon} className="h-8 w-8 text-yellow-deep" />
+                <h3 className="mt-4 text-xl font-semibold text-ink">
                   {svc.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -397,10 +395,10 @@ export function Services({ content, design, lang }: ViewProps) {
         </Reveal>
         <div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-3">
           {services.payment.milestones.map((m, i) => (
-            <Reveal key={m.step} delay={i * 100} className="bg-paper">
+            <Reveal key={m.title} delay={i * 100} className="bg-paper">
               <div className="p-6 sm:p-8">
-                <span className="font-mono text-xs text-yellow-deep">{m.step}</span>
-                <h3 className="mt-2 text-base font-semibold text-ink">{m.title}</h3>
+                <Icon name={m.icon} className="h-7 w-7 text-yellow-deep" />
+                <h3 className="mt-4 text-base font-semibold text-ink">{m.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{m.desc}</p>
               </div>
             </Reveal>

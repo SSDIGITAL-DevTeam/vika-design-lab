@@ -217,6 +217,7 @@ export const en: SiteContent = {
       "Interior design, full renovation, 3D visualisation, and renovation packages. Built to fit different budgets and starting points.",
     core: [
       {
+        icon: "home",
         title: "Interior Design",
         body: "We start by learning how your household actually works — storage habits, daily routines, whether you have pets or kids at home. The design comes from that, not from a template we adapt to fit your flat.",
         includedLabel: "What's included",
@@ -229,6 +230,7 @@ export const en: SiteContent = {
         ],
       },
       {
+        icon: "shield",
         title: "Full Renovation Works",
         body: "Everything runs under one contract, supervised by our team. Carpentry, electrical, plumbing, tiling, painting: one point of contact throughout, not five separate trades to follow up with.",
         includedLabel: "Trades we cover",
@@ -242,6 +244,7 @@ export const en: SiteContent = {
         ],
       },
       {
+        icon: "tag",
         title: "Renovation Packages",
         body: "Our packages bundle the most common renovation scopes into a clear, single quote. A practical starting point if you want a fixed number before committing to a full design brief.",
         includedLabel: "Package types available",
@@ -253,6 +256,7 @@ export const en: SiteContent = {
         ],
       },
       {
+        icon: "cube",
         title: "3D Design Visualisation",
         body: "Before construction starts, you'll walk through a fully rendered 3D version of your home. Most Singapore firms don't offer this at the design stage. You'll see exactly how the space looks before any money goes to construction.",
         includedLabel: "Why it matters",
@@ -332,17 +336,17 @@ export const en: SiteContent = {
         "In five years, we have never had to pay one out.",
       milestones: [
         {
-          step: "01",
+          icon: "users",
           title: "Free Consultation",
           desc: "We look at your space, talk through what you want, and put together a detailed quote. Free, no strings.",
         },
         {
-          step: "02",
+          icon: "cube",
           title: "Design Sign-Off",
           desc: "Full 3D walkthrough before we order anything. You approve every detail before work begins.",
         },
         {
-          step: "03",
+          icon: "check",
           title: "Pay as Work Progresses",
           desc: "Credit card accepted. Payments tied to completed stages — you are never paying for work that has not happened.",
         },
@@ -418,7 +422,7 @@ export const en: SiteContent = {
       errorRequired: "This field is required.",
     },
     reassurance: {
-      body: "We know reaching out to a renovation firm can feel daunting, especially after hearing about projects that went wrong. Vika was built to be the firm that doesn't let that happen. No surprises, no delays you find out about after the fact.",
+      body: "Most people who reach out to us are cautious, and for good reason. A friend's renovation that dragged on for months. A deposit paid with little to show for it. We built Vika to be the answer to that: clear contracts, milestone-based payments, and a full-refund guarantee written in from day one. If something comes up, you hear from us first.",
       icons: [
         "Full Refund if Delayed Over 1 Month, Written in Your Contract",
         "5-Year Workmanship Warranty",

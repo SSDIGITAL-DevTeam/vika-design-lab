@@ -38,6 +38,7 @@ export interface Badge {
 }
 
 export interface CoreService {
+  icon: string;
   title: string;
   body: string;
   includedLabel: string;
@@ -57,7 +58,7 @@ export interface MaterialsSpec {
 }
 
 export interface PaymentMilestone {
-  step: string;
+  icon: string;
   title: string;
   desc: string;
 }
