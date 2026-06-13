@@ -122,14 +122,14 @@ export function PortfolioPreview({ toPortfolio }: { toPortfolio: string }) {
         }`}
         onClick={close}
       >
-        {/* Close button */}
+        {/* Close button — bare icon, no background */}
         <button
           type="button"
           aria-label="Close image"
-          className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center bg-paper text-ink transition-colors duration-200 hover:bg-yellow sm:right-6 sm:top-6"
+          className="absolute right-4 top-3.5 z-10 text-paper/70 transition-colors duration-200 hover:text-paper sm:right-6 sm:top-5"
           onClick={(e) => { e.stopPropagation(); close(); }}
         >
-          <Icon name="close" className="h-5 w-5" />
+          <Icon name="close" className="h-7 w-7" />
         </button>
 
         {/* Image — scale 95→100 on open, 100→95 on close */}
