@@ -6,6 +6,7 @@ import type { ViewProps } from "@/components/types";
 import { CtaButton, Section } from "./ui";
 import { CtaSection } from "./cta-section";
 import { PartnerMarquee } from "./partner-marquee";
+import { PortfolioPreview } from "./portfolio-preview";
 
 const STAT_ICONS = ["home", "clock", "shield"] as const;
 const REFUND_PHRASE = "guarantees a full refund";
@@ -215,6 +216,9 @@ export function Home({ content, design, lang }: ViewProps) {
           </Reveal>
         </div>
       </Section>
+
+      {/* ── Portfolio preview ────────────────────────────────── */}
+      <PortfolioPreview toPortfolio={toPortfolio} />
 
       {/* ── Testimonials — each card staggers in ─────────────── */}
       <Section bordered>

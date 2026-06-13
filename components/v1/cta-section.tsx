@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { Reveal } from "@/components/shared/reveal";
-import { CtaButton } from "./ui";
+import { Icon } from "@/components/shared/icons";
 
 interface CtaSectionProps {
   heading: string;
@@ -11,6 +12,8 @@ interface CtaSectionProps {
   secondaryExternal?: boolean;
 }
 
+const BTN_INNER = "inline-flex min-h-12 w-full items-center justify-center gap-2 px-8 text-sm font-semibold tracking-wide";
+
 export function CtaSection({
   heading,
   sub,
@@ -21,42 +24,66 @@ export function CtaSection({
   secondaryExternal,
 }: CtaSectionProps) {
   return (
-    <div className="border-t border-line">
-      <div className="container-page grid items-center gap-8 py-(--section-y) md:grid-cols-[1.3fr_0.9fr]">
+    <section className="relative overflow-hidden">
+      {/* Background image */}
+      <img
+        src="/assets/component/background-cta.png"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        loading="lazy"
+      />
 
-        {/* Left: heading, body, buttons */}
+      {/* Content — vertically generous, centered */}
+      <div className="relative container-page py-20 text-center sm:py-28 lg:py-36">
         <Reveal>
-          <h2 className="text-balance text-3xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-4xl lg:text-5xl">
+          <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-paper sm:text-4xl lg:text-5xl">
             {heading}
           </h2>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-soft">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-paper/75 sm:text-lg">
             {sub}
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-3">
-            <CtaButton href={primaryHref}>{primary}</CtaButton>
-            <CtaButton
-              href={secondaryHref}
-              variant="secondary"
-              external={secondaryExternal}
+
+          {/* Buttons — stacked on mobile, side-by-side on sm+ */}
+          <div className="mx-auto mt-8 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+            {/* Primary: white filled */}
+            <Link
+              href={primaryHref}
+              className="inline-flex bg-paper text-ink transition-colors duration-200 hover:bg-paper/90"
             >
-              {secondary}
-            </CtaButton>
+              <span className={BTN_INNER}>
+                {primary}
+                <Icon name="arrow" className="h-4 w-4 shrink-0" />
+              </span>
+            </Link>
+
+            {/* Secondary: white outline */}
+            {secondaryExternal ? (
+              <a
+                href={secondaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex border border-paper/70 text-paper transition-colors duration-200 hover:bg-paper/10"
+              >
+                <span className={BTN_INNER}>
+                  {secondary}
+                  <Icon name="arrow" className="h-4 w-4 shrink-0" />
+                </span>
+              </a>
+            ) : (
+              <Link
+                href={secondaryHref}
+                className="inline-flex border border-paper/70 text-paper transition-colors duration-200 hover:bg-paper/10"
+              >
+                <span className={BTN_INNER}>
+                  {secondary}
+                  <Icon name="arrow" className="h-4 w-4 shrink-0" />
+                </span>
+              </Link>
+            )}
           </div>
         </Reveal>
-
-        {/* Right: chair — decorative, desktop only */}
-        <div className="hidden items-end justify-center md:flex">
-          <img
-            src="/assets/component/kursicta.png"
-            alt=""
-            aria-hidden
-            className="h-auto w-full object-contain"
-            style={{ maxHeight: "380px" }}
-            loading="lazy"
-          />
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 }
