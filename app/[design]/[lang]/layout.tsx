@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Montserrat, Archivo, IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
+import { Montserrat, Archivo, IBM_Plex_Mono, Noto_Sans_SC, Cormorant_Garamond } from "next/font/google";
 import "../../globals.css";
 import "lenis/dist/lenis.css";
 import {
@@ -37,8 +37,16 @@ const notoSC = Noto_Sans_SC({
   display: "swap",
   preload: false,
 });
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+  preload: false,
+});
 
-const fontVars = `${inter.variable} ${archivo.variable} ${mono.variable} ${notoSC.variable}`;
+const fontVars = `${inter.variable} ${archivo.variable} ${mono.variable} ${notoSC.variable} ${cormorant.variable}`;
 
 export async function generateStaticParams() {
   return allDesignLocaleParams();

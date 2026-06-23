@@ -4,19 +4,19 @@ import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { Icon } from "@/components/shared/icons";
 
-const PROJECTS: { id: number; cat: number; image: string; tall?: boolean }[] = [
-  { id: 1,  cat: 1, image: "/assets/portfolio/hdb/hdb1.jpg",       tall: true },
-  { id: 2,  cat: 1, image: "/assets/portfolio/hdb/hdb2.jpg" },
-  { id: 3,  cat: 1, image: "/assets/portfolio/hdb/hdb3.jpg" },
-  { id: 4,  cat: 1, image: "/assets/portfolio/hdb/hdb4.jpg" },
-  { id: 5,  cat: 2, image: "/assets/portfolio/condo/condo1.jpg" },
-  { id: 6,  cat: 2, image: "/assets/portfolio/condo/condo2.jpg",   tall: true },
-  { id: 7,  cat: 2, image: "/assets/portfolio/condo/condo3.jpg" },
-  { id: 8,  cat: 2, image: "/assets/portfolio/condo/condo4.jpg" },
-  { id: 9,  cat: 3, image: "/assets/portfolio/landed/landed1.jpg" },
-  { id: 10, cat: 3, image: "/assets/portfolio/landed/landed2.jpg", tall: true },
-  { id: 11, cat: 3, image: "/assets/portfolio/landed/landed3.jpg" },
-  { id: 12, cat: 3, image: "/assets/portfolio/landed/landed4.jpg" },
+const PROJECTS: { id: number; cat: number; image: string; name: string; tall?: boolean }[] = [
+  { id: 1,  cat: 1, image: "/assets/portfolio/hdb/hdb1.jpg",       name: "Executive Maisonette Yishun", tall: true },
+  { id: 2,  cat: 1, image: "/assets/portfolio/hdb/hdb2.jpg",       name: "Executive Maisonette Yishun" },
+  { id: 3,  cat: 1, image: "/assets/portfolio/hdb/hdb3.jpg",       name: "Executive Maisonette Yishun" },
+  { id: 4,  cat: 1, image: "/assets/portfolio/hdb/hdb4.jpg",       name: "Executive Maisonette Yishun" },
+  { id: 5,  cat: 2, image: "/assets/portfolio/condo/condo1.jpg",   name: "Geylang" },
+  { id: 6,  cat: 2, image: "/assets/portfolio/condo/condo2.jpg",   name: "Geylang", tall: true },
+  { id: 7,  cat: 2, image: "/assets/portfolio/condo/condo3.jpg",   name: "Geylang" },
+  { id: 8,  cat: 2, image: "/assets/portfolio/condo/condo4.jpg",   name: "Geylang" },
+  { id: 9,  cat: 3, image: "/assets/portfolio/landed/landed1.jpg", name: "Jalan Kuras 01" },
+  { id: 10, cat: 3, image: "/assets/portfolio/landed/landed2.jpg", name: "Jalan Kuras 02", tall: true },
+  { id: 11, cat: 3, image: "/assets/portfolio/landed/landed3.jpg", name: "Jalan Kuras 03" },
+  { id: 12, cat: 3, image: "/assets/portfolio/landed/landed4.jpg", name: "Jalan Kuras 04" },
 ];
 
 type LightboxItem = { src: string; label: string };
@@ -91,7 +91,7 @@ export function PortfolioGrid({
         className="grid grid-cols-2 gap-1.5 sm:gap-3 lg:grid-cols-3"
       >
         {visible.map((p, i) => {
-          const label = `${captionPrefix} ${String(p.id).padStart(2, "0")} · ${filters[p.cat]}`;
+          const label = `${p.name} · ${filters[p.cat]}`;
           return (
             <figure
               key={p.id}
@@ -115,7 +115,7 @@ export function PortfolioGrid({
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-linear-to-t from-black/70 via-black/30 to-transparent p-3 pt-8 text-paper sm:p-4 sm:pt-12">
                   <span className="text-[11px] font-medium sm:text-sm">
-                    {captionPrefix} {String(p.id).padStart(2, "0")}
+                    {p.name}
                   </span>
                   <span className="font-mono text-[9px] uppercase tracking-widest opacity-75 sm:text-[10px]">
                     {filters[p.cat]}

@@ -12,6 +12,7 @@ import type { ViewProps } from "@/components/types";
 import { Eyebrow, Section } from "./ui";
 import { CtaSection } from "./cta-section";
 import { StoryTimeline } from "./story-timeline";
+import { PortfolioMarquee } from "./portfolio-marquee";
 
 function PageHeader({
   image,
@@ -103,44 +104,39 @@ export function About({ content, design, lang }: ViewProps) {
         </div>
       </Section>
 
-      {/* ── Mission & Vision ───────────────────────────────────── */}
-      <Section bordered>
-        <div className="grid gap-px border border-line bg-line md:grid-cols-2">
-          <Reveal className="bg-paper">
-            <div className="p-6 sm:p-8">
-              <Eyebrow>{about.missionLabel}</Eyebrow>
-              <p className="mt-4 text-base leading-snug text-ink sm:mt-5 sm:text-xl">
-                {about.mission}
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={120} className="bg-ink">
-            <div className="p-6 text-paper sm:p-8">
-              <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-paper/60">
-                <span className="h-px w-6 bg-yellow" aria-hidden />
-                {about.visionLabel}
-              </p>
-              <p className="mt-4 text-base leading-snug sm:mt-5 sm:text-xl">
-                {about.vision}
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* ── Visual break ───────────────────────────────────── */}
-      <div
-        className="w-full overflow-hidden"
-        style={{ height: "clamp(200px, 38vw, 480px)" }}
-      >
+      {/* ── Mission & Vision — image backdrop ─────────────────── */}
+      <div className="relative overflow-hidden border-t border-line">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/assets/portfolio/landed/landed4.jpg"
           alt=""
           aria-hidden
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         />
+        <div className="absolute inset-0 bg-ink/78" />
+        <div className="relative container-page py-20 sm:py-24 lg:py-28">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-x-20">
+            <Reveal>
+              <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-paper/50">
+                <span className="h-px w-6 bg-yellow" aria-hidden />
+                {about.missionLabel}
+              </p>
+              <p className="mt-5 max-w-md text-xl font-medium leading-snug text-paper sm:text-2xl">
+                {about.mission}
+              </p>
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-paper/50">
+                <span className="h-px w-6 bg-yellow" aria-hidden />
+                {about.visionLabel}
+              </p>
+              <p className="mt-5 max-w-md text-xl font-medium leading-snug text-paper sm:text-2xl">
+                {about.vision}
+              </p>
+            </Reveal>
+          </div>
+        </div>
       </div>
 
       {/* ── Our Promise Is Backed by a Process ────────────────── */}
@@ -263,6 +259,7 @@ export function About({ content, design, lang }: ViewProps) {
 
 export function Services({ content, design, lang }: ViewProps) {
   const { services } = content;
+  const isZh = content.langTag.startsWith("zh");
   const toContact = pagePath(design, lang, "contact");
   const toPortfolio = pagePath(design, lang, "portfolio");
   return (
@@ -313,24 +310,21 @@ export function Services({ content, design, lang }: ViewProps) {
         </div>
       </Section>
 
-      {/* ── Portfolio proof strip ─────────────────────────── */}
-      <div className="grid grid-cols-3 gap-1 overflow-hidden">
-        {[
-          { src: "/assets/portfolio/hdb/hdb3.jpg",      alt: "HDB renovation" },
-          { src: "/assets/portfolio/condo/condo3.jpg",   alt: "Condo interior" },
-          { src: "/assets/portfolio/landed/landed3.jpg", alt: "Landed home" },
-        ].map((img) => (
-          <div key={img.src} className="aspect-4/3 overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={img.src}
-              alt={img.alt}
-              loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
-            />
-          </div>
-        ))}
-      </div>
+      {/* ── Portfolio section header + marquee ─────────────── */}
+      <Section bordered>
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+            {isZh ? "项目案例" : "Our Work"}
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
+            {isZh ? "从组屋到有地住宅，遍布全岛。" : "From HDB to landed, built across Singapore."}
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+            {isZh ? "每个项目都围绕真正居住其中的人而设计。" : "Every project is designed around the people who actually live in it."}
+          </p>
+        </Reveal>
+      </Section>
+      <PortfolioMarquee />
 
       {/* Speciality */}
       <Section bordered>
