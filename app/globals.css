@@ -49,9 +49,29 @@
   --font-display: var(--font-cormorant), Georgia, serif;
 }
 
+[data-design="v3"] {
+  --radius: 0px;
+  --section-y: 7rem;
+  --container: 80rem;
+
+  /* Noir Luxe — warm near-black, classic antique gold */
+  --color-paper:       #1A1714;
+  --color-paper-2:     #221E1A;
+  --color-ink:         #F2EDE4;
+  --color-ink-soft:    #D8D0C4;
+  --color-muted:       #9A8F82;
+  --color-line:        #2E2923;
+  --color-yellow:      #C9A96E;
+  --color-yellow-deep: #A8874F;
+
+  /* Heading: Cinzel — luxury serif for real estate & interior design */
+  --font-display: var(--font-cinzel), Georgia, serif;
+}
+
 @media (max-width: 639px) {
   [data-design="v1"],
-  [data-design="v2"] {
+  [data-design="v2"],
+  [data-design="v3"] {
     --section-y: 3rem;
   }
 }
@@ -86,6 +106,9 @@ body {
 }
 [data-design="v2"] :focus-visible {
   outline-color: var(--color-yellow-deep);
+}
+[data-design="v3"] :focus-visible {
+  outline-color: var(--color-yellow);
 }
 
 @media (prefers-reduced-motion: reduce) {

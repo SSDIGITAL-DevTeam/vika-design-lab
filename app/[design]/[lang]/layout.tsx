@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Montserrat, Archivo, IBM_Plex_Mono, Noto_Sans_SC, Cormorant_Garamond } from "next/font/google";
+import { Montserrat, Archivo, IBM_Plex_Mono, Noto_Sans_SC, Cormorant_Garamond, Cinzel } from "next/font/google";
 import "../../globals.css";
 import "lenis/dist/lenis.css";
 import {
@@ -45,8 +45,15 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
   preload: false,
 });
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cinzel",
+  display: "swap",
+  preload: false,
+});
 
-const fontVars = `${inter.variable} ${archivo.variable} ${mono.variable} ${notoSC.variable} ${cormorant.variable}`;
+const fontVars = `${inter.variable} ${archivo.variable} ${mono.variable} ${notoSC.variable} ${cormorant.variable} ${cinzel.variable}`;
 
 export async function generateStaticParams() {
   return allDesignLocaleParams();
