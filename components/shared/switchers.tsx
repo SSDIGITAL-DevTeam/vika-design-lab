@@ -22,12 +22,16 @@ export function LanguageSwitcher({
   lang,
   className,
   light,
+  onNavigate,
 }: {
   lang: Locale;
   className?: string;
   light?: boolean;
+  onNavigate?: () => void;
 }) {
   const pathname = usePathname();
+  if (LOCALES.length <= 1) return null;
+
   return (
     <div className={className} role="group" aria-label="Language">
       {LOCALES.map((loc) => {
@@ -37,7 +41,8 @@ export function LanguageSwitcher({
             key={loc}
             href={swapSegment(pathname, 1, loc)}
             hrefLang={loc}
-            aria-current={active ? "true" : undefined}
+            aria-current={active ? "page" : undefined}
+            onClick={onNavigate}
             className={`inline-flex min-h-11 min-w-11 items-center justify-center px-2 text-sm transition-colors duration-300 ${
               light
                 ? active ? "font-semibold text-white" : "text-white/60 hover:text-white"
@@ -56,10 +61,12 @@ export function DesignSwitcher({
   design,
   className,
   light,
+  onNavigate,
 }: {
   design: Design;
   className?: string;
   light?: boolean;
+  onNavigate?: () => void;
 }) {
   const pathname = usePathname();
   return (
@@ -70,7 +77,8 @@ export function DesignSwitcher({
           <Link
             key={d}
             href={swapSegment(pathname, 0, d)}
-            aria-current={active ? "true" : undefined}
+            aria-current={active ? "page" : undefined}
+            onClick={onNavigate}
             title={DESIGN_LABELS[d]}
             className={`inline-flex min-h-[36px] items-center justify-center px-3 text-xs uppercase tracking-wider transition-colors duration-300 ${
               light

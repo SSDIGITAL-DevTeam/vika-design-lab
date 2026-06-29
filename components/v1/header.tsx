@@ -100,7 +100,11 @@ export function Header({ content, design, lang }: ViewProps) {
               );
             })}
             <div className="flex items-center justify-between py-3">
-              <LanguageSwitcher lang={lang} className="flex items-center" />
+              <LanguageSwitcher
+                lang={lang}
+                className="flex items-center"
+                onNavigate={() => setOpen(false)}
+              />
             </div>
           </nav>
         </div>

@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Language Configuration
+
+Active languages are controlled at build time with:
+
+```bash
+NEXT_PUBLIC_ACTIVE_LOCALES=en
+```
+
+Use `NEXT_PUBLIC_ACTIVE_LOCALES=en,zh` to enable English and Chinese. When only one language is active, the language switcher is hidden automatically.
+
+After changing this value, restart the dev server or rebuild the app.
+
 ## Getting Started
 
 First, run the development server:

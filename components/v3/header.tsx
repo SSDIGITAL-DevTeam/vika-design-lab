@@ -20,8 +20,6 @@ export function Header({ content, design, lang }: ViewProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
-
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-40 transition-all duration-500 ${
@@ -109,8 +107,18 @@ export function Header({ content, design, lang }: ViewProps) {
             })}
           </nav>
           <div className="mt-6 flex items-center gap-4">
-            <DesignSwitcher design={design} className="flex items-center" light />
-            <LanguageSwitcher lang={lang} className="flex items-center" light />
+            <DesignSwitcher
+              design={design}
+              className="flex items-center"
+              light
+              onNavigate={() => setOpen(false)}
+            />
+            <LanguageSwitcher
+              lang={lang}
+              className="flex items-center"
+              light
+              onNavigate={() => setOpen(false)}
+            />
           </div>
         </div>
       </div>
