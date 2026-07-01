@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_KEYS, pagePath } from "@/lib/site";
 import { Icon } from "@/components/shared/icons";
-import { LanguageSwitcher, DesignSwitcher } from "@/components/shared/switchers";
+import { LanguageSwitcher } from "@/components/shared/switchers";
 import type { ViewProps } from "@/components/types";
 
 export function Header({ content, design, lang }: ViewProps) {
@@ -53,9 +53,9 @@ export function Header({ content, design, lang }: ViewProps) {
                 key={key}
                 href={href}
                 aria-current={active ? "page" : undefined}
-                className={`font-mono text-[10px] uppercase tracking-[0.2em] transition-opacity duration-200 ${
-                  active ? "text-white opacity-100" : "text-white/50 hover:text-white hover:opacity-100"
-                }`}
+                className={`font-mono uppercase transition-opacity duration-200 ${
+                  lang === "zh" ? "text-sm tracking-normal" : "text-[10px] tracking-[0.2em]"
+                } ${active ? "text-white opacity-100" : "text-white/50 hover:text-white hover:opacity-100"}`}
               >
                 {content.nav[key]}
                 {active && (
@@ -68,8 +68,6 @@ export function Header({ content, design, lang }: ViewProps) {
 
         {/* Right controls — always light */}
         <div className="flex items-center gap-1">
-          <DesignSwitcher design={design} className="hidden items-center sm:flex" light />
-          <span className="hidden h-3 w-px bg-white/20 sm:block mx-1" />
           <LanguageSwitcher lang={lang} className="hidden items-center sm:flex" light />
           <button
             type="button"
@@ -112,12 +110,6 @@ export function Header({ content, design, lang }: ViewProps) {
             })}
           </nav>
           <div className="mt-6 flex items-center gap-4">
-            <DesignSwitcher
-              design={design}
-              className="flex items-center"
-              light
-              onNavigate={() => setOpen(false)}
-            />
             <LanguageSwitcher
               lang={lang}
               className="flex items-center"

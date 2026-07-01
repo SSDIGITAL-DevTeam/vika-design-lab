@@ -1,5 +1,5 @@
 // Locale-independent site data: contact details, navigation model, and helpers.
-import type { Design, Locale } from "./designs";
+import { DEFAULT_DESIGN, type Design, type Locale } from "./designs";
 
 export const CONTACT = {
   phone: "+65 8886 6998",
@@ -23,13 +23,19 @@ export const NAV_KEYS: NavKey[] = [
   "contact",
 ];
 
-/** Build an in-app path that preserves the active design + locale. */
+/**
+ * Build an in-app path that preserves the active design + locale.
+ * The default design (v1) is served without its segment in the URL —
+ * see the rewrites in next.config.ts — so links stay clean. Other
+ * designs remain reachable at their full `/design/lang/...` path as
+ * an unlinked backup.
+ */
 export const pagePath = (
   design: Design,
   lang: Locale,
   page: NavKey
 ): string => {
-  const base = `/${design}/${lang}`;
+  const base = design === DEFAULT_DESIGN ? `/${lang}` : `/${design}/${lang}`;
   return page === "home" ? base : `${base}/${page}`;
 };
 

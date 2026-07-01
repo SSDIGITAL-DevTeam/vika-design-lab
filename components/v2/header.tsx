@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_KEYS, pagePath } from "@/lib/site";
 import { Icon } from "@/components/shared/icons";
-import { LanguageSwitcher, DesignSwitcher } from "@/components/shared/switchers";
+import { LanguageSwitcher } from "@/components/shared/switchers";
 import type { ViewProps } from "@/components/types";
 
 export function Header({ content, design, lang }: ViewProps) {
@@ -53,9 +53,9 @@ export function Header({ content, design, lang }: ViewProps) {
                 key={key}
                 href={href}
                 aria-current={active ? "page" : undefined}
-                className={`group relative font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${
-                  scrolled ? "text-ink/70 hover:text-ink" : "text-white/80 hover:text-white"
-                }`}
+                className={`group relative font-mono uppercase transition-colors duration-300 ${
+                  lang === "zh" ? "text-sm tracking-normal" : "text-[10px] tracking-[0.2em]"
+                } ${scrolled ? "text-ink/70 hover:text-ink" : "text-white/80 hover:text-white"}`}
               >
                 {content.nav[key]}
                 {active && (
@@ -69,8 +69,6 @@ export function Header({ content, design, lang }: ViewProps) {
 
         {/* Right controls */}
         <div className="flex items-center gap-1">
-          <DesignSwitcher design={design} className="hidden items-center sm:flex" light={!scrolled && !open} />
-          <span className={`hidden h-4 w-px sm:block ${scrolled ? "bg-line" : "bg-white/30"}`} />
           <LanguageSwitcher lang={lang} className="hidden items-center sm:flex" light={!scrolled && !open} />
           <button
             type="button"
@@ -115,11 +113,6 @@ export function Header({ content, design, lang }: ViewProps) {
             })}
           </nav>
           <div className="mt-6 flex items-center gap-4">
-            <DesignSwitcher
-              design={design}
-              className="flex items-center"
-              onNavigate={() => setOpen(false)}
-            />
             <LanguageSwitcher
               lang={lang}
               className="flex items-center"
