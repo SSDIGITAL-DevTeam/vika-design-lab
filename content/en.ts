@@ -291,11 +291,6 @@ export const en: SiteContent = {
         title: "Single-Room Premium Reno",
         body: "High-end single-room renovation, fully reversible when you move.",
       },
-      {
-        icon: "leaf",
-        title: "Rainwater Collection",
-        body: "For landed homes — a rainwater system designed into the build from the start.",
-      },
     ],
     materialsEyebrow: "Materials",
     materials: {

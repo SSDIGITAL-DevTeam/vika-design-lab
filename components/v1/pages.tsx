@@ -90,7 +90,7 @@ export function About({ content, design, lang }: ViewProps) {
                 {about.storyLabel}
               </p>
               <h2 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
-                {isZh ? "创办人的故事" : "Founder Story"}
+                {isZh ? "创办人的初心" : "Founder Story"}
               </h2>
             </Reveal>
             <div className="mt-8 space-y-7">
@@ -334,10 +334,10 @@ export function Services({ content, design, lang }: ViewProps) {
             {isZh ? "项目案例" : "Our Work"}
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
-            {isZh ? "从组屋到有地住宅，遍布全岛。" : "From HDB to landed, built across Singapore."}
+            {isZh ? "从组屋到有地住宅，遍布全新加坡。" : "From HDB to landed, built across Singapore."}
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-            {isZh ? "每个项目都围绕真正居住其中的人而设计。" : "Every project is designed around the people who actually live in it."}
+            {isZh ? "每一个空间，都围绕生活而设计。" : "Every project is designed around the people who actually live in it."}
           </p>
         </Reveal>
       </Section>
