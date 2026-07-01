@@ -166,7 +166,7 @@ export interface SiteContent {
     core: CoreService[];
     specialityEyebrow: string;
     specialityHeading: string;
-    specialityIntro: string;
+    specialityIntro?: string;
     speciality: SpecialityService[];
     materialsEyebrow: string;
     materials: { heading: string; sub: string; body: string[]; specs: MaterialsSpec[] };

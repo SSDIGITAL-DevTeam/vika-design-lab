@@ -353,7 +353,9 @@ export function Services({ content, design, lang }: ViewProps) {
           <h2 className="mt-4 font-display italic text-3xl font-light text-ink sm:text-4xl">
             {services.specialityHeading}
           </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{services.specialityIntro}</p>
+          {services.specialityIntro && (
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{services.specialityIntro}</p>
+          )}
         </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.speciality.map((s, i) => (

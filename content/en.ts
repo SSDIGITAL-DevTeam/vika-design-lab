@@ -268,8 +268,6 @@ export const en: SiteContent = {
     ],
     specialityEyebrow: "Speciality Services",
     specialityHeading: "A few things most firms won't do.",
-    specialityIntro:
-      "Outside the standard scope, we take on projects that need something more specific.",
     speciality: [
       {
         icon: "paw",
