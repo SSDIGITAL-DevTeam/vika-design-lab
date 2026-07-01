@@ -16,8 +16,13 @@ export function Header({ content, design, lang }: ViewProps) {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
+    const onPop = () => setOpen(false);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("popstate", onPop);
+    };
   }, []);
 
   return (

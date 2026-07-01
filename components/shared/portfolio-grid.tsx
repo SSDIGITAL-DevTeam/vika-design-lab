@@ -113,7 +113,7 @@ export function PortfolioGrid({
                   sizes="(min-width: 1024px) 33vw, 50vw"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-linear-to-t from-black/70 via-black/30 to-transparent p-3 pt-8 text-paper sm:p-4 sm:pt-12">
+                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-linear-to-t from-black/70 via-black/30 to-transparent p-3 pt-8 text-white sm:p-4 sm:pt-12">
                   <span className="text-[11px] font-medium sm:text-sm">
                     {p.name}
                   </span>
@@ -139,7 +139,7 @@ export function PortfolioGrid({
         onClick={close}
       >
         {/* Label — top left */}
-        <p className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-widest text-paper/50 sm:left-6 sm:top-6 sm:text-xs">
+        <p className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-widest text-white/50 sm:left-6 sm:top-6 sm:text-xs">
           {lastItem?.label}
         </p>
 
@@ -147,7 +147,7 @@ export function PortfolioGrid({
         <button
           type="button"
           aria-label="Close"
-          className="absolute right-4 top-3.5 text-paper/70 transition-colors duration-200 hover:text-paper sm:right-6 sm:top-5"
+          className="absolute right-4 top-3.5 text-white/70 transition-colors duration-200 hover:text-white sm:right-6 sm:top-5"
           onClick={(e) => { e.stopPropagation(); close(); }}
         >
           <Icon name="close" className="h-7 w-7" />

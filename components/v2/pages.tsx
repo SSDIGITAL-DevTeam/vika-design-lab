@@ -75,34 +75,39 @@ export function About({ content, design, lang }: ViewProps) {
 
       {/* Story */}
       <V2Section>
-        <GoldEyebrow>{about.storyLabel}</GoldEyebrow>
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-20 lg:items-start">
-          <div className="space-y-5">
-            {about.story.map((p, i) => (
-              <Reveal key={i} delay={i * 50}>
-                <p
-                  className={
-                    i === 0
-                      ? "font-display italic text-2xl font-light leading-snug text-ink sm:text-3xl"
-                      : "text-base leading-relaxed text-muted"
-                  }
-                >
-                  {p}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={100} className="lg:sticky lg:top-28 lg:self-start">
-            <div className="aspect-[3/4] overflow-hidden rounded-2xl">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:items-center">
+          {/* Photo */}
+          <Reveal>
+            <div className="overflow-hidden rounded-2xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/assets/images/home/homepage-section4.png"
                 alt=""
                 loading="lazy"
                 className="h-full w-full object-cover"
+                style={{ maxHeight: "520px" }}
               />
             </div>
           </Reveal>
+          {/* Milestone list */}
+          <div>
+            <GoldEyebrow>{about.storyLabel}</GoldEyebrow>
+            <h2 className="mt-4 font-display italic text-3xl font-light text-ink sm:text-4xl">
+              {isZh ? "创办人的故事" : "Founder Story"}
+            </h2>
+            <div className="mt-8 space-y-6">
+              {about.story.map((p, i) => (
+                <Reveal key={i} delay={i * 80}>
+                  <div className="flex gap-4 items-start">
+                    <span className="shrink-0 font-display italic text-3xl font-light leading-none text-yellow pt-1">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-base leading-relaxed text-muted">{p}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </V2Section>
 
@@ -153,18 +158,37 @@ export function About({ content, design, lang }: ViewProps) {
 
       {/* Process */}
       <V2Section>
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
-          <Reveal>
-            <GoldEyebrow>{isZh ? "施工流程" : "Our Process"}</GoldEyebrow>
-            <h2 className="mt-4 font-display italic text-3xl font-light text-ink sm:text-4xl">
-              {about.process.heading}
-            </h2>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="space-y-5">
-              {about.process.body.map((p, i) => (
-                <p key={i} className="text-base leading-relaxed text-muted">{p}</p>
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
+          <div>
+            <Reveal>
+              <GoldEyebrow>{isZh ? "施工流程" : "Our Process"}</GoldEyebrow>
+              <h2 className="mt-4 font-display italic text-3xl font-light text-ink sm:text-4xl">
+                {about.process.heading}
+              </h2>
+            </Reveal>
+            <div className="mt-8 space-y-0 divide-y divide-line border-y border-line">
+              {about.process.body.map((step, i) => (
+                <Reveal key={i} delay={i * 80}>
+                  <div className="flex gap-5 py-5 items-start">
+                    <span className="shrink-0 font-display italic text-2xl font-light leading-none text-yellow pt-0.5">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-sm leading-relaxed text-muted sm:text-base">{step}</p>
+                  </div>
+                </Reveal>
               ))}
+            </div>
+          </div>
+          <Reveal delay={120}>
+            <div className="overflow-hidden rounded-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/images/about-us/About%20us%20Section%203.png"
+                alt={about.process.heading}
+                loading="lazy"
+                className="w-full object-cover"
+                style={{ maxHeight: "480px" }}
+              />
             </div>
           </Reveal>
         </div>
@@ -228,6 +252,21 @@ export function About({ content, design, lang }: ViewProps) {
   );
 }
 
+const CORE_SERVICE_PHOTOS = [
+  "/assets/portfolio/hdb/hdb3.jpg",
+  "/assets/portfolio/hdb/hdb4.jpg",
+  "/assets/portfolio/condo/condo3.jpg",
+  "/assets/portfolio/condo/condo4.jpg",
+];
+
+const SPECIALITY_PHOTOS = [
+  "/assets/portfolio/landed/landed3.jpg",
+  "/assets/portfolio/landed/landed4.jpg",
+  "/assets/portfolio/landed/landed1.jpg",
+  "/assets/portfolio/landed/landed2.jpg",
+  "/assets/portfolio/condo/condo2.jpg",
+];
+
 /* ═══════════════════════════════════════════════════════════
    SERVICES
 ═══════════════════════════════════════════════════════════ */
@@ -245,7 +284,7 @@ export function Services({ content, design, lang }: ViewProps) {
         subtitle={services.subtitle}
       />
 
-      {/* Core services */}
+      {/* Core services — alternating image rows */}
       <V2Section>
         <Reveal>
           <GoldEyebrow>{services.coreEyebrow}</GoldEyebrow>
@@ -254,25 +293,36 @@ export function Services({ content, design, lang }: ViewProps) {
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{services.coreSub}</p>
         </Reveal>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-10 space-y-4">
           {services.core.map((svc, i) => (
-            <Reveal key={svc.title} delay={i * 80}>
-              <article className="h-full rounded-2xl bg-paper-2 p-7 border-t border-yellow/40 transition-all duration-300 hover:border-yellow/70">
-                <Icon name={svc.icon} className="h-7 w-7 text-yellow" />
-                <h3 className="mt-5 text-lg font-semibold text-ink">{svc.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{svc.body}</p>
-                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-yellow/70">
-                  {svc.includedLabel}
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {svc.included.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-muted">
-                      <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-yellow" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+            <Reveal key={svc.title} delay={i * 60}>
+              <div className={`grid overflow-hidden rounded-2xl lg:grid-cols-[2fr_3fr] ${i % 2 === 1 ? "lg:[&>*:first-child]:order-last" : ""}`}>
+                {/* Photo */}
+                <div className="relative min-h-52 overflow-hidden lg:min-h-64">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={CORE_SERVICE_PHOTOS[i]}
+                    alt={svc.title}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                {/* Content */}
+                <article className="flex flex-col justify-center bg-paper-2 p-7 lg:p-10">
+                  <Icon name={svc.icon} className="h-7 w-7 text-yellow" />
+                  <h3 className="mt-4 text-xl font-semibold text-ink">{svc.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{svc.body}</p>
+                  <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-yellow/70">{svc.includedLabel}</p>
+                  <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5">
+                    {svc.included.map((item) => (
+                      <li key={item} className="flex items-center gap-1.5 text-sm text-muted">
+                        <Icon name="check" className="h-3.5 w-3.5 shrink-0 text-yellow" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -296,29 +346,38 @@ export function Services({ content, design, lang }: ViewProps) {
       </div>
       <PortfolioMarquee />
 
-      {/* Speciality */}
+      {/* Speciality — visual photo grid */}
       <V2Section>
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
-          <Reveal>
-            <GoldEyebrow>{services.specialityEyebrow}</GoldEyebrow>
-            <h2 className="mt-4 font-display italic text-3xl font-light text-ink sm:text-4xl">
-              {services.specialityHeading}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{services.specialityIntro}</p>
-          </Reveal>
-          <ul className="divide-y divide-line border-y border-line">
-            {services.speciality.map((s, i) => (
-              <li key={s.title} className="py-5">
-                <Reveal delay={i * 60} className="flex items-start gap-4">
-                  <Icon name={s.icon} className="mt-0.5 h-6 w-6 shrink-0 text-yellow" />
-                  <div>
+        <Reveal>
+          <GoldEyebrow>{services.specialityEyebrow}</GoldEyebrow>
+          <h2 className="mt-4 font-display italic text-3xl font-light text-ink sm:text-4xl">
+            {services.specialityHeading}
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{services.specialityIntro}</p>
+        </Reveal>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.speciality.map((s, i) => (
+            <Reveal key={s.title} delay={i * 60}>
+              <div className="group overflow-hidden rounded-2xl border border-line">
+                <div className="aspect-4/3 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={SPECIALITY_PHOTOS[i]}
+                    alt={s.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center gap-2">
+                    <Icon name={s.icon} className="h-4 w-4 shrink-0 text-yellow" />
                     <h3 className="font-semibold text-ink">{s.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{s.body}</p>
                   </div>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </V2Section>
 

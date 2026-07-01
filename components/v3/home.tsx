@@ -4,7 +4,7 @@ import { CountUp } from "@/components/shared/count-up";
 import { PartnerMarquee } from "@/components/v1/partner-marquee";
 import { PortfolioPreview } from "@/components/v2/portfolio-preview";
 import type { ViewProps } from "@/components/types";
-import { GoldLabel, GoldButton, V3Rule, V3Section, InkLink } from "./ui";
+import { GoldLabel, GoldButton, V3Rule, V3Section } from "./ui";
 
 export function Home({ content, design, lang }: ViewProps) {
   const { home } = content;
@@ -209,34 +209,49 @@ export function Home({ content, design, lang }: ViewProps) {
       </div>
 
       {/* ── End CTA — full gold section ───────────────────────────── */}
-      <div className="bg-yellow py-24 sm:py-32 text-center">
-        <Reveal>
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-black/50">
-            {home.usp.eyebrow}
-          </p>
-          <h2 className="mx-auto mt-8 max-w-xl font-display text-3xl font-semibold leading-snug tracking-wide text-black sm:text-4xl">
-            {content.services.cta.heading}
-          </h2>
-          <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-black/65">
-            {content.services.cta.sub ?? ""}
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-6">
+      <section className="bg-yellow pt-14 sm:pt-20">
+        <div className="container-page">
+          <Reveal>
+            <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <h2 className="font-display text-3xl font-semibold leading-tight tracking-wide text-black sm:text-4xl">
+                  {content.services.cta.heading}
+                </h2>
+                <p className="mt-5 max-w-lg text-sm font-medium leading-relaxed text-black/55 sm:text-base">
+                  {content.services.cta.sub ?? ""}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-5 sm:gap-8 lg:justify-end">
             <a
               href={toContact}
-              className="inline-flex items-center gap-2 border-2 border-black px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-black transition-colors duration-200 hover:bg-black hover:text-yellow"
+                  className="inline-flex min-h-12 items-center justify-center border-2 border-black px-8 font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-black transition-colors duration-200 hover:bg-black hover:text-yellow sm:min-w-48"
             >
               {content.services.cta.primary}
-              <span aria-hidden>→</span>
             </a>
             <a
               href={toPortfolio}
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-black/60 transition-opacity duration-200 hover:opacity-100"
+                  className="inline-flex min-h-12 items-center font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-black/70 transition-opacity duration-200 hover:opacity-100"
             >
               {content.services.cta.secondary}
             </a>
-          </div>
-        </Reveal>
-      </div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="relative mt-10 sm:mt-12 lg:mt-14">
+              <div className="overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/images/home/Frame 4.png"
+                  alt="Bright Vika Design Lab kitchen project"
+                  loading="lazy"
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }
