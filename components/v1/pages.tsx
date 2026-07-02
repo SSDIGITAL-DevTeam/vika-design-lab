@@ -159,44 +159,65 @@ export function About({ content, design, lang }: ViewProps) {
 
       {/* ── Our Promise Is Backed by a Process ────────────────── */}
       <Section bordered>
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16 lg:items-center">
-          {/* Numbered steps */}
-          <div>
-            <Reveal>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-                {isZh ? "施工流程" : "Our Process"}
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
-                {about.process.heading}
-              </h2>
-            </Reveal>
-            <div className="mt-8 space-y-0 divide-y divide-line border-y border-line">
-              {about.process.body.map((step, i) => (
-                <Reveal key={i} delay={i * 80}>
-                  <div className="flex gap-5 py-5 items-start">
-                    <span
-                      className="shrink-0 font-mono text-2xl font-black leading-none text-yellow-deep pt-0.5"
-                      aria-hidden
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-sm leading-relaxed text-ink-soft sm:text-base">{step}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-          {/* Photo */}
-          <Reveal delay={120}>
+        {/* Image + first two paragraphs */}
+        <div className="grid gap-6 md:gap-8 md:grid-cols-[1fr_1.4fr]">
+          <Reveal>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/images/about-us/About%20us%20Section%203.png"
               alt={about.process.heading}
-              className="w-full object-cover"
-              style={{ maxHeight: "480px" }}
+              className="aspect-square w-full max-w-sm object-cover"
             />
           </Reveal>
+          <Reveal delay={120}>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              {isZh ? "施工流程" : "Our Process"}
+            </p>
+            <h2 className="mt-2 mb-4 text-xl font-semibold text-ink sm:mb-5 sm:text-2xl lg:text-3xl">
+              {about.process.heading}
+            </h2>
+            <div className="space-y-3 text-sm leading-relaxed text-ink-soft sm:space-y-4 sm:text-base">
+              {about.process.body.slice(0, 2).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </Reveal>
         </div>
+
+        {/* Commitment block — 3rd paragraph elevated */}
+        <Reveal delay={160}>
+          <div className="mt-6 grid gap-px bg-ink grid-cols-1 sm:mt-8 md:grid-cols-[auto_1fr]">
+            {/* Metric */}
+            <div className="flex items-center justify-center gap-4 bg-ink px-8 py-6 md:flex-col md:gap-0 md:px-10 md:py-8 md:text-center">
+              <span
+                className="block font-mono text-[3rem] font-black leading-none tracking-tight text-yellow sm:text-[3.5rem] md:text-[4.5rem]"
+                aria-hidden
+              >
+                1
+              </span>
+              <div className="md:mt-1">
+                <span className="block font-mono text-xs uppercase tracking-[0.2em] text-yellow/70">
+                  {isZh ? "个月" : "MONTH"}
+                </span>
+                <span className="mt-1 hidden font-mono text-[10px] uppercase tracking-widest text-paper/40 md:mt-4 md:block">
+                  {isZh ? "目标交付周期" : "TARGET DELIVERY"}
+                </span>
+              </div>
+            </div>
+            {/* Text */}
+            <div className="bg-ink p-6 sm:p-8 md:p-10">
+              <span className="block h-px w-10 bg-yellow" aria-hidden />
+              <p className="mt-4 text-sm leading-relaxed text-paper/80 sm:text-base md:text-lg">
+                {about.process.body[2]}
+              </p>
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-paper/40 sm:mt-5 sm:text-[11px]">
+                {isZh
+                  ? "工程延期保障 - 若因我方原因导致工程延期超过一个月，可依据合约申请退款保障。"
+                  : "Delay over 1 month → full refund, in writing"}
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
       {/* ── Meet Our Designer ──────────────────────────────────── */}
