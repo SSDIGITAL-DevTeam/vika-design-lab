@@ -1,21 +1,13 @@
 "use client";
 
 import Marquee from "react-fast-marquee";
+import { flattenAlbumPhotos, PORTFOLIO_CATEGORY_LABELS } from "@/lib/portfolio";
 
-const PORTFOLIO = [
-  { src: "/assets/portfolio/hdb/hdb1.jpg",      type: "HDB",    location: "Executive Maisonette Yishun" },
-  { src: "/assets/portfolio/condo/condo1.jpg",   type: "Condo",  location: "Geylang" },
-  { src: "/assets/portfolio/landed/landed1.jpg", type: "Landed", location: "Jalan Kuras 01" },
-  { src: "/assets/portfolio/hdb/hdb2.jpg",       type: "HDB",    location: "Executive Maisonette Yishun" },
-  { src: "/assets/portfolio/condo/condo2.jpg",   type: "Condo",  location: "Geylang" },
-  { src: "/assets/portfolio/landed/landed2.jpg", type: "Landed", location: "Jalan Kuras 02" },
-  { src: "/assets/portfolio/hdb/hdb3.jpg",       type: "HDB",    location: "Executive Maisonette Yishun" },
-  { src: "/assets/portfolio/condo/condo3.jpg",   type: "Condo",  location: "Geylang" },
-  { src: "/assets/portfolio/landed/landed3.jpg", type: "Landed", location: "Jalan Kuras 03" },
-  { src: "/assets/portfolio/hdb/hdb4.jpg",       type: "HDB",    location: "Executive Maisonette Yishun" },
-  { src: "/assets/portfolio/condo/condo4.jpg",   type: "Condo",  location: "Geylang" },
-  { src: "/assets/portfolio/landed/landed4.jpg", type: "Landed", location: "Jalan Kuras 04" },
-];
+const PORTFOLIO = flattenAlbumPhotos().map(({ src, album }) => ({
+  src,
+  type: PORTFOLIO_CATEGORY_LABELS[album.category],
+  location: album.name,
+}));
 
 export function PortfolioMarquee() {
   return (

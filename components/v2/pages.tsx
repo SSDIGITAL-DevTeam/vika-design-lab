@@ -357,7 +357,7 @@ export function Services({ content, design, lang }: ViewProps) {
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{services.specialityIntro}</p>
           )}
         </Reveal>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {services.speciality.map((s, i) => (
             <Reveal key={s.title} delay={i * 60}>
               <div className="group overflow-hidden rounded-2xl border border-line">
@@ -430,7 +430,7 @@ export function Services({ content, design, lang }: ViewProps) {
         <Reveal delay={200}>
           <figure className="mt-10 rounded-2xl bg-yellow p-8 sm:p-10">
             <blockquote className="font-display italic text-xl font-light leading-snug text-paper sm:text-2xl">
-              &ldquo;{services.payment.refundQuote}&rdquo;
+              {services.payment.refundQuote}
             </blockquote>
             <figcaption className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/70">
               {services.payment.refundNote}
@@ -474,6 +474,7 @@ export function Portfolio({ content, design, lang }: ViewProps) {
         <PortfolioGrid
           filters={portfolio.filters}
           captionPrefix={portfolio.captionPrefix}
+          detailLabels={portfolio.albumDetailLabels}
         />
       </V2Section>
       <V2Cta image="/assets/portfolio/hdb/hdb3.jpg">

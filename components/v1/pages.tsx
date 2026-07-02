@@ -352,7 +352,7 @@ export function Services({ content, design, lang }: ViewProps) {
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{services.specialityIntro}</p>
           )}
         </Reveal>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
           {services.speciality.map((s, i) => (
             <Reveal key={s.title} delay={i * 60}>
               <article className="group border border-line overflow-hidden">
@@ -421,7 +421,7 @@ export function Services({ content, design, lang }: ViewProps) {
         <Reveal delay={200}>
           <figure className="mt-8 border border-ink bg-yellow p-7">
             <blockquote className="text-xl font-medium leading-snug text-ink">
-              &ldquo;{services.payment.refundQuote}&rdquo;
+              {services.payment.refundQuote}
             </blockquote>
             <figcaption className="mt-4 text-sm font-medium text-ink/80">
               {services.payment.refundNote}
@@ -456,6 +456,7 @@ export function Portfolio({ content, design, lang }: ViewProps) {
         <PortfolioGrid
           filters={portfolio.filters}
           captionPrefix={portfolio.captionPrefix}
+          detailLabels={portfolio.albumDetailLabels}
         />
       </Section>
       <CtaSection

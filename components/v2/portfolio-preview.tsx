@@ -4,14 +4,20 @@ import { useState, useEffect } from "react";
 import { Icon } from "@/components/shared/icons";
 import { Reveal } from "@/components/shared/reveal";
 import { GoldEyebrow, GoldButton } from "./ui";
+import { PORTFOLIO_ALBUMS, PORTFOLIO_CATEGORY_LABELS } from "@/lib/portfolio";
 
 type LightboxItem = { src: string; alt: string; label: string };
 
-const ITEMS: LightboxItem[] = [
-  { src: "/assets/portfolio/landed/landed1.jpg",  alt: "Jalan Kuras 01 — Landed", label: "Landed · Jalan Kuras" },
-  { src: "/assets/portfolio/condo/condo2.jpg",    alt: "Geylang — Condo",         label: "Condo · Geylang" },
-  { src: "/assets/portfolio/hdb/hdb1.jpg",        alt: "Executive Maisonette Yishun — HDB", label: "HDB · Yishun" },
-];
+// Featured order: landed (tall/left slot) · condo · hdb — matches the
+// original hand-picked layout.
+const ITEMS: LightboxItem[] = (["landed", "condo", "hdb"] as const).map((cat) => {
+  const album = PORTFOLIO_ALBUMS.find((a) => a.category === cat)!;
+  return {
+    src: album.photos[0],
+    alt: `${album.name} — ${PORTFOLIO_CATEGORY_LABELS[cat]}`,
+    label: `${PORTFOLIO_CATEGORY_LABELS[cat]} · ${album.name}`,
+  };
+});
 
 function Lightbox({ item, onClose }: { item: LightboxItem; onClose: () => void }) {
   const [visible, setVisible] = useState(false);

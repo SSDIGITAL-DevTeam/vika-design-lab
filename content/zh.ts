@@ -341,6 +341,12 @@ export const zh: SiteContent = {
     subtitle: "遍布新加坡，超过 400 个真实住宅项目。每一个空间，都围绕生活而设计。",
     filters: ["全部", "组屋", "公寓", "有地住宅"],
     captionPrefix: "项目",
+    albumDetailLabels: {
+      roomType: "户型",
+      size: "面积",
+      location: "地点",
+      sqftUnit: "平方尺",
+    },
     cta: {
       heading: "每一个家，都从一句「我想要这样生活」开始。",
       body: "这里的每一个项目，都始于一次对话。告诉我们你对家的想法，一起开始。",
@@ -366,10 +372,10 @@ export const zh: SiteContent = {
     form: {
       heading: "开始规划您的理想之家",
       sub: "留下您的需求，我们将在一个工作日内与您联系，为您提供免费的初步咨询。",
-      name: { label: "姓名", placeholder: "你的称呼", required: true },
+      name: { label: "姓名", placeholder: "请输入您的姓名", required: true },
       phone: {
         label: "联系电话",
-        placeholder: "建议提供 WhatsApp 号码",
+        placeholder: "建议填写WhatsApp联系号码",
         required: true,
       },
       email: { label: "电子邮箱", placeholder: "you@example.com" },

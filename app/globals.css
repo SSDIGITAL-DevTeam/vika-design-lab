@@ -147,6 +147,14 @@ body {
   from { width: 0; opacity: 0; }
   to   { width: 6rem; opacity: 1; }
 }
+@keyframes slide-fade-in-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-fade-in-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
 @utility animate-fade-up {
   animation: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -160,6 +168,12 @@ body {
 }
 @utility animate-draw-line {
   animation: draw-line 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-slide-in-right {
+  animation: slide-fade-in-right 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-slide-in-left {
+  animation: slide-fade-in-left 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ─── Mobile nav open animation ────────────────────────────── */

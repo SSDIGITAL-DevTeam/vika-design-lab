@@ -357,6 +357,12 @@ export const en: SiteContent = {
       "Over 400 homes across Singapore. Each one designed around the people who live there.",
     filters: ["All", "HDB", "Condo", "Landed"],
     captionPrefix: "Project",
+    albumDetailLabels: {
+      roomType: "Room Type",
+      size: "Size",
+      location: "Location",
+      sqftUnit: "sqft",
+    },
     cta: {
       heading: "Like what you see?",
       body: "Every project here started with one conversation. Tell us about your home and what you have in mind.",

@@ -4,13 +4,18 @@ import { useState, useEffect, useCallback } from "react";
 import { Reveal } from "@/components/shared/reveal";
 import { CtaButton, Section } from "./ui";
 import { Icon } from "@/components/shared/icons";
+import { getAlbumById } from "@/lib/portfolio";
+
+const landed = getAlbumById("landed-jalan-kuras")!;
+const hdb = getAlbumById("hdb-yishun-executive-maisonette")!;
+const condo = getAlbumById("condo-geylang")!;
 
 const PREVIEW = [
-  { src: "/assets/portfolio/landed/landed2.jpg",  alt: "Landed home interior — Vika Design Lab", featured: true },
-  { src: "/assets/portfolio/hdb/hdb1.jpg",         alt: "HDB kitchen — Vika Design Lab" },
-  { src: "/assets/portfolio/landed/landed1.jpg",   alt: "Landed home — Vika Design Lab" },
-  { src: "/assets/portfolio/hdb/hdb2.jpg",         alt: "HDB bathroom — Vika Design Lab" },
-  { src: "/assets/portfolio/condo/condo2.jpg",     alt: "Condo bathroom — Vika Design Lab" },
+  { src: landed.photos[1], alt: "Landed home interior — Vika Design Lab", featured: true },
+  { src: hdb.photos[0],    alt: "HDB kitchen — Vika Design Lab" },
+  { src: landed.photos[0], alt: "Landed home — Vika Design Lab" },
+  { src: hdb.photos[1],    alt: "HDB bathroom — Vika Design Lab" },
+  { src: condo.photos[1],  alt: "Condo bathroom — Vika Design Lab" },
 ];
 
 interface PortfolioPreviewProps {

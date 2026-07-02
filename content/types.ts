@@ -187,6 +187,12 @@ export interface SiteContent {
     subtitle: string;
     filters: string[];
     captionPrefix: string;
+    albumDetailLabels: {
+      roomType: string;
+      size: string;
+      location: string;
+      sqftUnit: string;
+    };
     cta: { heading: string; body: string } & CtaPair;
   };
 

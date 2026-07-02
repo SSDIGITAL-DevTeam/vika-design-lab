@@ -40,7 +40,7 @@ export function CtaSection({
           <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-paper sm:text-4xl lg:text-5xl">
             {heading}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-paper/75 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-paper/75 sm:text-lg">
             {sub}
           </p>
 
