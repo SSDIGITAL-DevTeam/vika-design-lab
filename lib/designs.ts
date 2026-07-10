@@ -1,13 +1,9 @@
-// Design-variant + locale registry. Single source of truth for which
-// variants/locales exist, used by routing, generateStaticParams, and switchers.
-
-export const DESIGNS = ["v1", "v2", "v3"] as const;
-export type Design = (typeof DESIGNS)[number];
+// Locale registry. Single source of truth for which locales exist, used by
+// routing, generateStaticParams, and the language switcher.
 
 export const SUPPORTED_LOCALES = ["en", "zh"] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
-export const DEFAULT_DESIGN: Design = "v1";
 export const DEFAULT_LOCALE: Locale = "en";
 
 const isSupportedLocale = (value: string): value is Locale =>
@@ -29,23 +25,14 @@ const activeLocalesFromEnv = (): readonly Locale[] => {
 // Set NEXT_PUBLIC_ACTIVE_LOCALES=en,zh to enable both languages.
 export const LOCALES: readonly Locale[] = activeLocalesFromEnv();
 
-export const DESIGN_LABELS: Record<Design, string> = {
-  v1: "Swiss Editorial",
-  v2: "Warm Editorial",
-  v3: "Noir Luxe",
-};
-
 export const LOCALE_LABELS: Record<Locale, string> = {
   en: "EN",
   zh: "中文",
 };
 
-export const hasDesign = (value: string): value is Design =>
-  (DESIGNS as readonly string[]).includes(value);
-
 export const hasLocale = (value: string): value is Locale =>
   (LOCALES as readonly string[]).includes(value);
 
-/** Every design × locale combination, for static generation. */
-export const allDesignLocaleParams = (): { design: Design; lang: Locale }[] =>
-  DESIGNS.flatMap((design) => LOCALES.map((lang) => ({ design, lang })));
+/** Every active locale, for static generation. */
+export const allLocaleParams = (): { lang: Locale }[] =>
+  LOCALES.map((lang) => ({ lang }));

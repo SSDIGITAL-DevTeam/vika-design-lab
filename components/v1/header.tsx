@@ -8,11 +8,11 @@ import { Icon } from "@/components/shared/icons";
 import { LanguageSwitcher } from "@/components/shared/switchers";
 import type { ViewProps } from "@/components/types";
 
-export function Header({ content, design, lang }: ViewProps) {
+export function Header({ content, lang }: ViewProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const home = pagePath(design, lang, "home");
+  const home = pagePath(lang, "home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,7 +37,7 @@ export function Header({ content, design, lang }: ViewProps) {
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {NAV_KEYS.map((key) => {
-            const href = pagePath(design, lang, key);
+            const href = pagePath(lang, key);
             const active = pathname === href;
             return (
               <Link
@@ -82,7 +82,7 @@ export function Header({ content, design, lang }: ViewProps) {
         <div className="border-t border-line bg-paper">
           <nav className="container-page flex flex-col py-2" aria-label="Mobile">
             {NAV_KEYS.map((key) => {
-              const href = pagePath(design, lang, key);
+              const href = pagePath(lang, key);
               const active = pathname === href;
               return (
                 <Link

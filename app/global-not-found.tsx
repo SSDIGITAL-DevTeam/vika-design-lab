@@ -1,9 +1,9 @@
 // Handles every unmatched URL and every notFound() call in the app,
-// including ones thrown from [design]/[lang]/layout.tsx itself — see the
+// including ones thrown from [lang]/layout.tsx itself — see the
 // `experimental.globalNotFound` flag in next.config.ts. Because it replaces
-// normal rendering it can't inherit the [design]/[lang] layout (or its
-// params), so it assembles the v1 Header/Footer itself; language is picked
-// client-side in NotFoundContent since there's no [lang] param here.
+// normal rendering it can't inherit the [lang] layout (or its params), so
+// it assembles the Header/Footer itself; language is picked client-side in
+// NotFoundContent since there's no [lang] param here.
 import type { Metadata } from "next";
 import { Montserrat, IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";

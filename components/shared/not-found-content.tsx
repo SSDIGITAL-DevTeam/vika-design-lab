@@ -6,7 +6,7 @@
 // fallback's server render, so we use it to pick en vs zh content client-side.
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { getKit } from "@/components/registry";
+import { Header, Footer } from "@/components/v1";
 import { pagePath } from "@/lib/site";
 import type { SiteContent } from "@/content";
 import { CtaButton } from "@/components/v1/ui";
@@ -22,9 +22,8 @@ export function NotFoundContent({
   const isZh = pathname?.startsWith("/zh") ?? false;
   const lang = isZh ? "zh" : "en";
   const content = isZh ? contentZh : contentEn;
-  const { Header, Footer } = getKit("v1");
-  const home = pagePath("v1", lang, "home");
-  const portfolio = pagePath("v1", lang, "portfolio");
+  const home = pagePath(lang, "home");
+  const portfolio = pagePath(lang, "portfolio");
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -32,7 +31,7 @@ export function NotFoundContent({
 
   return (
     <>
-      <Header content={content} design="v1" lang={lang} />
+      <Header content={content} lang={lang} />
       <main className="flex flex-1 items-center">
         <div className="container-page py-24 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
@@ -54,7 +53,7 @@ export function NotFoundContent({
           </div>
         </div>
       </main>
-      <Footer content={content} design="v1" lang={lang} />
+      <Footer content={content} lang={lang} />
     </>
   );
 }

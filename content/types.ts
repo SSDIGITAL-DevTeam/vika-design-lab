@@ -76,6 +76,19 @@ export interface FormField {
   required?: boolean;
 }
 
+export interface RecruitmentContent {
+  title: string;
+  subtitle: string;
+  introHeading: string;
+  intro: string;
+  highlightsHeading: string;
+  highlights: string[];
+  ctaHeading: string;
+  ctaSub: string;
+  applyLabel: string;
+  whatsappMessage: string;
+}
+
 export interface SiteContent {
   /** Used for <html lang> + UI direction; mirrors the locale. */
   langTag: string;
@@ -90,6 +103,7 @@ export interface SiteContent {
     about: string;
     services: string;
     portfolio: string;
+    recruitment: string;
     contact: string;
   };
 
@@ -233,4 +247,7 @@ export interface SiteContent {
     contactHeading: string;
     rights: string;
   };
+
+  /** Optional — populated once the client confirms role details/content. */
+  recruitment?: RecruitmentContent;
 }

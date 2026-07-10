@@ -27,11 +27,11 @@ function HeroSub({ text }: { text: string }) {
   );
 }
 
-export function Home({ content, design, lang }: ViewProps) {
+export function Home({ content, lang }: ViewProps) {
   const { home } = content;
-  const toContact = pagePath(design, lang, "contact");
-  const toPortfolio = pagePath(design, lang, "portfolio");
-  const toServices = pagePath(design, lang, "services");
+  const toContact = pagePath(lang, "contact");
+  const toPortfolio = pagePath(lang, "portfolio");
+  const toServices = pagePath(lang, "services");
 
   return (
     <>

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function DesignLocaleError({
+export default function LocaleError({
   error,
   unstable_retry,
 }: {

@@ -23,55 +23,15 @@
   --font-cjk: var(--font-noto-sc), var(--font-inter), sans-serif;
 }
 
-/* Per-design tokens — switched by the data-design attribute on <html>. */
-[data-design="v1"] {
+/* Layout tokens. */
+:root {
   --radius: 0px;
   --section-y: 5rem; /* 80px */
   --container: 72rem; /* 1152px */
 }
 
-[data-design="v2"] {
-  --radius: 1.5rem;
-  --section-y: 7rem; /* 112px */
-  --container: 80rem; /* 1280px */
-
-  /* Warm cream luxury overrides */
-  --color-paper:    #FAF7F2;
-  --color-paper-2:  #F0E9DF;
-  --color-ink:      #1A1714;
-  --color-ink-soft: #2E2925;
-  --color-muted:    #6B5F54;
-  --color-line:     #DDD4C8;
-  --color-yellow:      #C9A96E;
-  --color-yellow-deep: #A8874F;
-
-  /* Heading font → Cormorant Garamond */
-  --font-display: var(--font-cormorant), Georgia, serif;
-}
-
-[data-design="v3"] {
-  --radius: 0px;
-  --section-y: 7rem;
-  --container: 80rem;
-
-  /* Noir Luxe — warm near-black, classic antique gold */
-  --color-paper:       #1A1714;
-  --color-paper-2:     #221E1A;
-  --color-ink:         #F2EDE4;
-  --color-ink-soft:    #D8D0C4;
-  --color-muted:       #9A8F82;
-  --color-line:        #2E2923;
-  --color-yellow:      #C9A96E;
-  --color-yellow-deep: #A8874F;
-
-  /* Heading: Cinzel — luxury serif for real estate & interior design */
-  --font-display: var(--font-cinzel), Georgia, serif;
-}
-
 @media (max-width: 639px) {
-  [data-design="v1"],
-  [data-design="v2"],
-  [data-design="v3"] {
+  :root {
     --section-y: 3rem;
   }
 }
@@ -99,16 +59,10 @@ body {
   color: var(--color-ink);
 }
 
-/* Visible, consistent keyboard focus across both designs. */
+/* Visible, consistent keyboard focus. */
 :focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
-}
-[data-design="v2"] :focus-visible {
-  outline-color: var(--color-yellow-deep);
-}
-[data-design="v3"] :focus-visible {
-  outline-color: var(--color-yellow);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -122,7 +76,7 @@ body {
   }
 }
 
-/* Shared container helper used by both designs. */
+/* Page container helper. */
 @utility container-page {
   width: 100%;
   max-width: var(--container);

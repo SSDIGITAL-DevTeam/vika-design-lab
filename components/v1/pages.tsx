@@ -56,10 +56,10 @@ const DESIGNER_PHOTOS = [
   "https://i.pravatar.cc/400?img=15",
 ];
 
-export function About({ content, design, lang }: ViewProps) {
+export function About({ content, lang }: ViewProps) {
   const { about } = content;
-  const toContact = pagePath(design, lang, "contact");
-  const toPortfolio = pagePath(design, lang, "portfolio");
+  const toContact = pagePath(lang, "contact");
+  const toPortfolio = pagePath(lang, "portfolio");
   const isZh = content.langTag.startsWith("zh");
   return (
     <>
@@ -220,7 +220,7 @@ export function About({ content, design, lang }: ViewProps) {
         </Reveal>
       </Section>
 
-      {/* ── Meet Our Designer ──────────────────────────────────── */}
+      {/* ── Meet Our Designers ─────────────────────────────────── */}
       <Section bordered>
         <Reveal>
           <div className="mb-8">
@@ -233,6 +233,13 @@ export function About({ content, design, lang }: ViewProps) {
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
               {about.designers.intro}
             </p>
+            <a
+              href={pagePath(lang, "recruitment")}
+              className="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-ink underline decoration-yellow decoration-2 underline-offset-4 transition-colors duration-200 hover:text-yellow-deep"
+            >
+              {isZh ? "加入我们的团队" : "Join Our Team"}
+              <Icon name="arrow" className="h-3.5 w-3.5" />
+            </a>
           </div>
         </Reveal>
 
@@ -291,11 +298,11 @@ const SPECIALITY_PHOTOS = [
   "/assets/portfolio/condo/condo2.jpg",
 ];
 
-export function Services({ content, design, lang }: ViewProps) {
+export function Services({ content, lang }: ViewProps) {
   const { services } = content;
   const isZh = content.langTag.startsWith("zh");
-  const toContact = pagePath(design, lang, "contact");
-  const toPortfolio = pagePath(design, lang, "portfolio");
+  const toContact = pagePath(lang, "contact");
+  const toPortfolio = pagePath(lang, "portfolio");
   return (
     <>
       <PageHeader
@@ -463,9 +470,9 @@ export function Services({ content, design, lang }: ViewProps) {
   );
 }
 
-export function Portfolio({ content, design, lang }: ViewProps) {
+export function Portfolio({ content, lang }: ViewProps) {
   const { portfolio, common } = content;
-  const toContact = pagePath(design, lang, "contact");
+  const toContact = pagePath(lang, "contact");
   return (
     <>
       <PageHeader
@@ -595,6 +602,64 @@ export function Contact({ content }: ViewProps) {
           <p className="mt-4 max-w-2xl text-sm text-muted">
             {contact.map.directions}
           </p>
+        </Reveal>
+      </Section>
+    </>
+  );
+}
+
+export function Recruitment({ content }: ViewProps) {
+  const { recruitment } = content;
+  const isZh = content.langTag.startsWith("zh");
+  if (!recruitment) return null;
+
+  return (
+    <>
+      <PageHeader
+        image="/assets/component/About%20Us.png"
+        title={recruitment.title}
+        subtitle={recruitment.subtitle}
+      />
+
+      <Section bordered>
+        <Reveal>
+          <Eyebrow>{isZh ? "职位空缺" : "Open Position"}</Eyebrow>
+          <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
+            {recruitment.introHeading}
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
+            {recruitment.intro}
+          </p>
+        </Reveal>
+
+        <Reveal delay={120} className="mt-10">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+            {recruitment.highlightsHeading}
+          </p>
+          <ul className="mt-4 space-y-2.5">
+            {recruitment.highlights.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm text-ink-soft">
+                <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-yellow-deep" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </Section>
+
+      <Section bordered>
+        <Reveal className="text-center">
+          <h2 className="text-2xl font-semibold text-ink sm:text-3xl">{recruitment.ctaHeading}</h2>
+          <p className="mt-3 text-sm text-muted">{recruitment.ctaSub}</p>
+          <a
+            href={buildWhatsAppLink(recruitment.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 bg-ink px-6 text-sm font-semibold text-paper transition-colors duration-200 hover:bg-ink-soft"
+          >
+            {recruitment.applyLabel}
+            <Icon name="arrow" className="h-4 w-4" />
+          </a>
         </Reveal>
       </Section>
     </>

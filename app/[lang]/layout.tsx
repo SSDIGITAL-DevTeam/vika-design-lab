@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Montserrat, Archivo, IBM_Plex_Mono, Noto_Sans_SC, Cormorant_Garamond, Cinzel } from "next/font/google";
-import "../../globals.css";
+import "../globals.css";
 import "lenis/dist/lenis.css";
-import {
-  allDesignLocaleParams,
-  hasDesign,
-  hasLocale,
-} from "@/lib/designs";
+import { allLocaleParams, hasLocale } from "@/lib/designs";
 import { getContent } from "@/content";
-import { getKit } from "@/components/registry";
+import { Header, Footer } from "@/components/v1";
 import { WhatsAppFloat } from "@/components/shared/whatsapp-float";
 import { SmoothScroll } from "@/components/shared/smooth-scroll";
 
@@ -56,12 +52,20 @@ const cinzel = Cinzel({
 const fontVars = `${inter.variable} ${archivo.variable} ${mono.variable} ${notoSC.variable} ${cormorant.variable} ${cinzel.variable}`;
 
 export async function generateStaticParams() {
-  return allDesignLocaleParams();
+  return allLocaleParams();
 }
+
+// [lang] is the first segment under app/, so an invalid value here needs to
+// be treated as a genuinely unmatched route (same path as e.g. /foo/bar) for
+// app/global-not-found.tsx to catch it — a notFound() thrown from inside this
+// layout does not reliably bubble to it. Restricting params to exactly the
+// locales from generateStaticParams makes Next 404 at the router level
+// instead of ever entering this layout with an invalid `lang`.
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
-}: LayoutProps<"/[design]/[lang]">): Promise<Metadata> {
+}: LayoutProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const { brand } = getContent(lang);
@@ -74,18 +78,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function DesignLocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
-}: LayoutProps<"/[design]/[lang]">) {
-  const { design, lang } = await params;
-  if (!hasDesign(design) || !hasLocale(lang)) notFound();
+}: LayoutProps<"/[lang]">) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
 
   const content = getContent(lang);
-  const { Header, Footer } = getKit(design);
 
   return (
-    <html lang={lang} data-design={design} className={fontVars}>
+    <html lang={lang} className={fontVars}>
       <body className="flex min-h-screen flex-col">
         <SmoothScroll />
         <a
@@ -94,11 +97,11 @@ export default async function DesignLocaleLayout({
         >
           {content.common.skipToContent}
         </a>
-        <Header content={content} design={design} lang={lang} />
+        <Header content={content} lang={lang} />
         <main id="main" className="flex-1">
           {children}
         </main>
-        <Footer content={content} design={design} lang={lang} />
+        <Footer content={content} lang={lang} />
         <WhatsAppFloat
           message={content.common.whatsappPrefill}
           label={content.common.whatsappTooltip}

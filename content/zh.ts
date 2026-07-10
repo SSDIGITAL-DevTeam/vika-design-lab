@@ -20,6 +20,7 @@ export const zh: SiteContent = {
     about: "关于我们",
     services: "服务内容",
     portfolio: "项目展示",
+    recruitment: "招聘信息",
     contact: "联系我们",
   },
 
@@ -424,5 +425,24 @@ export const zh: SiteContent = {
     navHeading: "浏览",
     contactHeading: "联系方式",
     rights: "Vika Design Lab。版权所有。",
+  },
+
+  // 占位内容 — 版面先行搭建，待客户确认职位细节后再补充正式内容。
+  recruitment: {
+    title: "加入我们",
+    subtitle: "我们正在扩编，诚邀室内设计师加入我们的团队。",
+    introHeading: "室内设计师",
+    intro:
+      "我们正在寻找室内设计师加入新加坡团队。具体经验要求将在确认后补充于此。",
+    highlightsHeading: "我们期待的特质",
+    highlights: [
+      "具备住宅室内设计经验（详细要求待确认）",
+      "有作品集可供参考",
+      "常驻新加坡",
+    ],
+    ctaHeading: "有兴趣加入我们吗？",
+    ctaSub: "通过 WhatsApp 联系我们并附上您的作品集，我们会尽快回复您。",
+    applyLabel: "通过 WhatsApp 申请",
+    whatsappMessage: "您好 Vika Design Lab！我对室内设计师职位感兴趣，想进一步了解详情。",
   },
 };

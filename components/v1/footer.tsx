@@ -3,7 +3,7 @@ import { CONTACT, NAV_KEYS, pagePath } from "@/lib/site";
 import { Icon } from "@/components/shared/icons";
 import type { ViewProps } from "@/components/types";
 
-export function Footer({ content, design, lang }: ViewProps) {
+export function Footer({ content, lang }: ViewProps) {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-ink bg-ink text-paper">
@@ -27,7 +27,7 @@ export function Footer({ content, design, lang }: ViewProps) {
             {NAV_KEYS.map((key) => (
               <li key={key}>
                 <Link
-                  href={pagePath(design, lang, key)}
+                  href={pagePath(lang, key)}
                   className="text-sm text-paper/80 transition-colors duration-200 hover:text-yellow"
                 >
                   {content.nav[key]}
