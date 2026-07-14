@@ -1,13 +1,13 @@
 import type { SiteContent } from "./types";
 
-// English copy — mapped from the polished Website Copywriting Guide.
+// English copy — tone and messaging aligned with the current content/zh.ts.
 export const en: SiteContent = {
   langTag: "en",
 
   brand: {
     name: "Vika Design Lab",
     tagline:
-      "Designing homes with care, patience, and attention to every detail — so you can feel at ease.",
+      "Designed for your home, considered for your life. Every detail exists to make living more comfortable, more at ease.",
   },
 
   nav: {
@@ -30,12 +30,12 @@ export const en: SiteContent = {
 
   home: {
     heroEyebrow: "Singapore Interior Design & Renovation",
-    heroHeadline: "Designing Homes with Care, Patience, and Attention to Every Detail — So You Can Feel at Ease.",
+    heroHeadline: "Designed for Your Home, Considered for Your Life. Every Detail Exists to Make Living More Comfortable, More at Ease.",
     heroSub:
-      "If your project runs more than one month late, you get a full refund — the only guarantee like it in Singapore, written into your contract from day one.",
+      "If your project runs more than one month late, you get a full refund. It's written into your contract — for a renovation you can feel at ease about.",
     cta: { primary: "Get a Free Quote", secondary: "See Our Work" },
     stats: [
-      { value: "400+", label: "Homes Transformed" },
+      { value: "400+", label: "Homes Completed" },
       { value: "5", label: "Years in Singapore" },
       { value: "5-Year", label: "Workmanship Warranty" },
     ],
@@ -54,17 +54,17 @@ export const en: SiteContent = {
         {
           icon: "shield",
           title: "Full Refund If Your Project Runs Late",
-          body: "If your project is delayed by more than one month, you get a full refund — guaranteed in writing, in your contract. In five years, we've never had to pay one out.",
+          body: "If your project is delayed by more than one month, you get a full refund — guaranteed in writing, in your contract.",
         },
         {
           icon: "users",
           title: "Two Designers on Every Project",
-          body: "Every project is led by two designers, so work keeps moving even if one is unavailable — continuity from day one.",
+          body: "Every project is handled by two dedicated designers — for smoother communication, design continuity, and less disruption if someone's away.",
         },
         {
           icon: "cube",
           title: "3D Immersive Design Preview",
-          body: "Before a single wall is touched, you'll walk through your future home in full 3D — a level of detail few firms in Singapore offer at the design stage.",
+          body: "Before a single wall is touched, you'll walk through your future home in full 3D, so you can get a feel for the space in advance.",
         },
         {
           icon: "clock",
@@ -79,7 +79,7 @@ export const en: SiteContent = {
         {
           icon: "badge",
           title: "5-Year Workmanship Warranty",
-          body: "Every nail, tile, and cabinet door is covered for five years — if something we built needs fixing, we come back and take care of it.",
+          body: "Every project comes with a 5-year workmanship warranty, so you can stay at ease after moving in — if any issue comes up, we're still here to help.",
         },
       ],
     },
@@ -118,7 +118,7 @@ export const en: SiteContent = {
     testimonials: {
       eyebrow: "Client Reviews",
       heading: "What They Say About Us",
-      sub: "What homeowners told us after they moved in. No scripts, no incentives.",
+      sub: "Real feedback, shared after they moved in.",
       items: [
         {
           quote:
@@ -129,7 +129,7 @@ export const en: SiteContent = {
         {
           quote:
             "As a business owner, I don't have time to micromanage a renovation. Vika's team took complete ownership. The quality of materials and workmanship exceeded what I expected at this price point.",
-          author: "Mr Tan",
+          author: "Mr Chen",
           meta: "Condo, Bishan",
         },
         {
@@ -165,7 +165,7 @@ export const en: SiteContent = {
   },
 
   about: {
-    title: "Why We Build Homes Differently",
+    title: "Why Choose Vika Design Lab?",
     subtitle:
       "Vika Design Lab was founded on a simple idea: homeowners in Singapore deserve a more transparent, more accountable, and more reassuring renovation experience.",
     storyLabel: "Our Story",
@@ -181,7 +181,7 @@ export const en: SiteContent = {
     },
     missionLabel: "Our Mission",
     mission:
-      "To make quality interior design genuinely accessible — at prices below the Singapore market average, without compromising on materials, workmanship, or the human experience of working with us.",
+      "To provide high-quality interior design with fair, transparent pricing — so more homeowners in Singapore can have the home they've been dreaming of, without compromising on materials or workmanship.",
     visionLabel: "Our Vision",
     vision:
       "To become the most trusted interior design company in Singapore: the name homeowners recommend to the people they care about most.",
@@ -189,8 +189,8 @@ export const en: SiteContent = {
       heading: "Our Promise Is Backed by a Process",
       body: [
         "On-time delivery isn't left to chance — it comes from clear project management, regular site visits, and transparent communication throughout construction.",
-        "Every project is followed through by a dedicated team, from site inspections to contractor coordination, so each phase moves forward smoothly. If anything needs to change, you'll hear from us first, with a clear explanation and a plan.",
-        "Every timeline is agreed in writing, and every stage is followed through with clear communication — if plans ever need to shift, you'll know in advance, not left waiting.",
+        "Every project is followed through by a dedicated team — from site inspections to contractor coordination to progress tracking — so each phase moves forward smoothly. If anything changes, we'll reach out first, explain what's happening, and lay out a clear plan, so you're never left guessing.",
+        "We aim to deliver every project on time, through solid project management and ongoing communication at every stage. If the schedule needs to shift, we'll tell you in advance and confirm the next steps — not leave you waiting to find out.",
       ],
     },
     designers: {
@@ -211,9 +211,9 @@ export const en: SiteContent = {
     subtitle:
       "From design to delivery, one team sees it through. Interior design, full renovation, 3D visualisation, and renovation packages — all under a single contract.",
     coreEyebrow: "What We Offer",
-    coreHeading: "Four services, one team.",
+    coreHeading: "Four services, built around your space.",
     coreSub:
-      "Interior design, full renovation, 3D visualisation, and renovation packages. Built to fit different budgets and starting points.",
+      "Whether you're renovating a new home, refreshing an old one, or just want to understand your budget range first, we offer clear, complete service options.",
     core: [
       {
         icon: "home",
@@ -319,9 +319,9 @@ export const en: SiteContent = {
     },
     pricingEyebrow: "Pricing",
     payment: {
-      heading: "Transparent pricing, no upfront lump sum.",
-      sub: "Milestones tied to completed work, credit cards accepted, and a refund clause in your contract from day one.",
-      body: "We accept credit card payments — a convenience most renovation firms in Singapore don't offer. Payment milestones are tied to completed project stages, so you only pay as verified work is done.",
+      heading: "Transparent pricing, a reassuring start.",
+      sub: "Payments follow project milestones, with scope and terms clearly laid out in your contract.",
+      body: "We accept credit card payments — a convenience many renovation firms in Singapore don't offer. Payments are tied to project stages as work progresses.",
       refundQuote:
         "If your project runs more than one month past the agreed deadline due to our oversight, you get a full refund — written into your contract.",
       refundNote:
@@ -330,17 +330,17 @@ export const en: SiteContent = {
         {
           icon: "users",
           title: "Free Consultation",
-          desc: "We look at your space, talk through what you want, and put together a detailed quote. Free, no strings.",
+          desc: "We look at your space, talk through what you want, and put together a detailed quote. No strings attached, no pressure to decide.",
         },
         {
           icon: "cube",
           title: "Design Sign-Off",
-          desc: "Full 3D walkthrough before we order anything. You approve every detail before work begins.",
+          desc: "We start only once every detail has been confirmed.",
         },
         {
           icon: "check",
           title: "Pay as Work Progresses",
-          desc: "Credit card accepted. Payments tied to completed stages — you are never paying for work that has not happened.",
+          desc: "A clear process, so you always know where things stand.",
         },
       ],
     },
@@ -375,8 +375,8 @@ export const en: SiteContent = {
   contact: {
     title: "Let's Talk About Your Home",
     subtitle:
-      "Whether you have a clear vision or you're still figuring things out, we're here to help. No pressure, no obligation.",
-    detailsHeading: "Talk to us directly",
+      "Whether you already have ideas or you're still exploring, we're happy to help you plan the home you're picturing.",
+    detailsHeading: "Contact Us",
     detailsNote: "We typically respond within one business day.",
     labels: {
       phone: "Phone",
@@ -387,8 +387,8 @@ export const en: SiteContent = {
     },
     hoursValue: "Monday – Saturday, 10am – 7pm",
     form: {
-      heading: "Tell Us About Your Home",
-      sub: "Fill in the form and we'll be in touch within one business day with a no-obligation consultation.",
+      heading: "Start Planning Your Dream Home",
+      sub: "Share your needs and we'll be in touch within one business day with a free initial consultation.",
       name: { label: "Full Name", placeholder: "Your name", required: true },
       phone: {
         label: "Phone Number",
@@ -447,7 +447,7 @@ export const en: SiteContent = {
   recruitment: {
     title: "Join Our Team",
     subtitle:
-      "We're growing, and we're looking for Interior Designers to grow with us.",
+      "We're expanding, and inviting Interior Designers to join our team.",
     introHeading: "Interior Designer",
     intro:
       "We're looking for Interior Designers to join our team in Singapore. Details on requirements and experience level will be added here once confirmed.",
