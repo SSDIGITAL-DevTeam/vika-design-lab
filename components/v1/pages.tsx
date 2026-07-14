@@ -7,9 +7,10 @@
 import { Icon } from "@/components/shared/icons";
 import { EnquiryForm } from "@/components/shared/enquiry-form";
 import { PortfolioGrid } from "@/components/shared/portfolio-grid";
+import { getAlbumById } from "@/lib/portfolio";
 import { Reveal } from "@/components/shared/reveal";
 import type { ViewProps } from "@/components/types";
-import { Eyebrow, Section } from "./ui";
+import { Eyebrow, Section, CtaButton } from "./ui";
 import { CtaSection } from "./cta-section";
 import { PortfolioMarquee } from "./portfolio-marquee";
 
@@ -608,9 +609,11 @@ export function Contact({ content }: ViewProps) {
   );
 }
 
-export function Recruitment({ content }: ViewProps) {
+const RECRUITMENT_CULTURE_PHOTO = getAlbumById("landed-jalan-kuras")?.photos[1];
+
+export function Recruitment({ content, lang }: ViewProps) {
   const { recruitment } = content;
-  const isZh = content.langTag.startsWith("zh");
+  const toContact = pagePath(lang, "contact");
   if (!recruitment) return null;
 
   return (
@@ -621,47 +624,86 @@ export function Recruitment({ content }: ViewProps) {
         subtitle={recruitment.subtitle}
       />
 
+      {/* ── Why Join — image + culture blurb ────────────────────── */}
       <Section bordered>
+        <div className="grid items-center gap-6 md:gap-8 md:grid-cols-[1fr_1.4fr]">
+          <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={RECRUITMENT_CULTURE_PHOTO}
+              alt={recruitment.cultureHeading}
+              className="aspect-4/3 w-full max-w-sm object-cover"
+            />
+          </Reveal>
+          <Reveal delay={120}>
+            <h2 className="text-xl font-semibold text-ink sm:text-2xl lg:text-3xl">
+              {recruitment.cultureHeading}
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
+              {recruitment.culture}
+            </p>
+            <CtaButton href="#open-positions" variant="secondary" className="mt-6">
+              {recruitment.viewPositionsLabel}
+            </CtaButton>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* ── Open positions ───────────────────────────────────────── */}
+      <Section bordered id="open-positions">
         <Reveal>
-          <Eyebrow>{isZh ? "职位空缺" : "Open Position"}</Eyebrow>
-          <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
-            {recruitment.introHeading}
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
-            {recruitment.intro}
-          </p>
+          <Eyebrow>{recruitment.positionsEyebrow}</Eyebrow>
         </Reveal>
-
-        <Reveal delay={120} className="mt-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            {recruitment.highlightsHeading}
-          </p>
-          <ul className="mt-4 space-y-2.5">
-            {recruitment.highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm text-ink-soft">
-                <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-yellow-deep" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        <div className="mt-8 space-y-6">
+          {recruitment.positions.map((position, i) => (
+            <Reveal key={position.title} delay={i * 80}>
+              <article className="border border-line p-6 sm:p-8">
+                <h3 className="text-xl font-semibold text-ink sm:text-2xl">
+                  {position.title}
+                </h3>
+                {(position.type || position.location) && (
+                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                    {position.type && <span>{position.type}</span>}
+                    {position.location && <span>{position.location}</span>}
+                  </div>
+                )}
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
+                  {position.intro}
+                </p>
+                <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">
+                  {position.highlightsLabel}
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {position.highlights.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-ink-soft">
+                      <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-yellow-deep" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <CtaButton
+                  href={buildWhatsAppLink(position.whatsappMessage)}
+                  external
+                  className="mt-8"
+                >
+                  {position.applyLabel}
+                </CtaButton>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
-      <Section bordered>
-        <Reveal className="text-center">
-          <h2 className="text-2xl font-semibold text-ink sm:text-3xl">{recruitment.ctaHeading}</h2>
-          <p className="mt-3 text-sm text-muted">{recruitment.ctaSub}</p>
-          <a
-            href={buildWhatsAppLink(recruitment.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 bg-ink px-6 text-sm font-semibold text-paper transition-colors duration-200 hover:bg-ink-soft"
-          >
-            {recruitment.applyLabel}
-            <Icon name="arrow" className="h-4 w-4" />
-          </a>
-        </Reveal>
-      </Section>
+      {/* ── General CTA — for anyone not covered above ───────────── */}
+      <CtaSection
+        heading={recruitment.ctaHeading}
+        sub={recruitment.ctaSub}
+        primary={recruitment.ctaPrimary}
+        primaryHref={toContact}
+        secondary={recruitment.ctaSecondary}
+        secondaryHref={buildWhatsAppLink(recruitment.ctaWhatsappMessage)}
+        secondaryExternal
+      />
     </>
   );
 }

@@ -76,17 +76,34 @@ export interface FormField {
   required?: boolean;
 }
 
+export interface RecruitmentPosition {
+  title: string;
+  /** Optional — only rendered once confirmed (e.g. "Full-time"). */
+  type?: string;
+  /** Optional — only rendered once confirmed (e.g. "Singapore"). */
+  location?: string;
+  intro: string;
+  highlightsLabel: string;
+  highlights: string[];
+  applyLabel: string;
+  whatsappMessage: string;
+}
+
 export interface RecruitmentContent {
   title: string;
   subtitle: string;
-  introHeading: string;
-  intro: string;
-  highlightsHeading: string;
-  highlights: string[];
+  cultureHeading: string;
+  culture: string;
+  viewPositionsLabel: string;
+  positionsEyebrow: string;
+  positions: RecruitmentPosition[];
   ctaHeading: string;
   ctaSub: string;
-  applyLabel: string;
-  whatsappMessage: string;
+  /** Label for the internal Contact-page button. */
+  ctaPrimary: string;
+  /** Label for the external WhatsApp button. */
+  ctaSecondary: string;
+  ctaWhatsappMessage: string;
 }
 
 export interface SiteContent {

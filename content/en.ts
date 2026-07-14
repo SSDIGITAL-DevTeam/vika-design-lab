@@ -448,19 +448,34 @@ export const en: SiteContent = {
     title: "Join Our Team",
     subtitle:
       "We're expanding, and inviting Interior Designers to join our team.",
-    introHeading: "Interior Designer",
-    intro:
-      "We're looking for Interior Designers to join our team in Singapore. Details on requirements and experience level will be added here once confirmed.",
-    highlightsHeading: "What We Look For",
-    highlights: [
-      "Experience in residential interior design (details to be confirmed)",
-      "A portfolio of past work",
-      "Based in Singapore",
+    cultureHeading: "Why Join Vika",
+    culture:
+      "We're a small, hands-on team that sees projects through from first sketch to final handover. You'll work closely with the people who founded this company, on real homes across Singapore — not just render decks.",
+    viewPositionsLabel: "View Open Positions",
+    positionsEyebrow: "Open Positions",
+    positions: [
+      {
+        title: "Interior Designer",
+        location: "Singapore",
+        intro:
+          "We're looking for Interior Designers to join our team in Singapore. Details on requirements and experience level will be added here once confirmed.",
+        highlightsLabel: "What We Look For",
+        highlights: [
+          "Experience in residential interior design (details to be confirmed)",
+          "A portfolio of past work",
+          "Based in Singapore",
+        ],
+        applyLabel: "Apply via WhatsApp",
+        whatsappMessage:
+          "Hi Vika Design Lab! I'm interested in the Interior Designer position and would like to find out more.",
+      },
     ],
-    ctaHeading: "Interested in joining us?",
-    ctaSub: "Send us a message on WhatsApp with your portfolio and we'll get back to you.",
-    applyLabel: "Apply via WhatsApp",
-    whatsappMessage:
-      "Hi Vika Design Lab! I'm interested in the Interior Designer position and would like to find out more.",
+    ctaHeading: "Don't see the right role?",
+    ctaSub:
+      "We're always happy to hear from good people. Send us a message and we'll keep you in mind.",
+    ctaPrimary: "Contact Us",
+    ctaSecondary: "WhatsApp Us",
+    ctaWhatsappMessage:
+      "Hi Vika Design Lab! I'd like to find out about career opportunities with your team.",
   },
 };

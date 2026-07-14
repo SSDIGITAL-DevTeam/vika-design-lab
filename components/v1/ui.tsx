@@ -62,13 +62,16 @@ export function Section({
   children,
   className = "",
   bordered,
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
   bordered?: boolean;
+  id?: string;
 }) {
   return (
     <section
+      id={id}
       className={`container-page py-(--section-y) ${
         bordered ? "border-t border-line" : ""
       } ${className}`}

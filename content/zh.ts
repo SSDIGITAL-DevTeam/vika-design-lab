@@ -431,18 +431,32 @@ export const zh: SiteContent = {
   recruitment: {
     title: "加入我们",
     subtitle: "我们正在扩编，诚邀室内设计师加入我们的团队。",
-    introHeading: "室内设计师",
-    intro:
-      "我们正在寻找室内设计师加入新加坡团队。具体经验要求将在确认后补充于此。",
-    highlightsHeading: "我们期待的特质",
-    highlights: [
-      "具备住宅室内设计经验（详细要求待确认）",
-      "有作品集可供参考",
-      "常驻新加坡",
+    cultureHeading: "为什么加入 Vika",
+    culture:
+      "我们是一个精简、注重实际执行的团队，从最初的草图到最终交付都亲自跟进。你将直接与创办团队合作，参与新加坡各地真实的住宅项目——不只是制作效果图。",
+    viewPositionsLabel: "查看职位空缺",
+    positionsEyebrow: "职位空缺",
+    positions: [
+      {
+        title: "室内设计师",
+        location: "新加坡",
+        intro:
+          "我们正在寻找室内设计师加入新加坡团队。具体经验要求将在确认后补充于此。",
+        highlightsLabel: "我们期待的特质",
+        highlights: [
+          "具备住宅室内设计经验（详细要求待确认）",
+          "有作品集可供参考",
+          "常驻新加坡",
+        ],
+        applyLabel: "通过 WhatsApp 申请",
+        whatsappMessage:
+          "您好 Vika Design Lab！我对室内设计师职位感兴趣，想进一步了解详情。",
+      },
     ],
-    ctaHeading: "有兴趣加入我们吗？",
-    ctaSub: "通过 WhatsApp 联系我们并附上您的作品集，我们会尽快回复您。",
-    applyLabel: "通过 WhatsApp 申请",
-    whatsappMessage: "您好 Vika Design Lab！我对室内设计师职位感兴趣，想进一步了解详情。",
+    ctaHeading: "没有找到合适的职位？",
+    ctaSub: "我们始终欢迎优秀人才主动联系，留言给我们，我们会记住你。",
+    ctaPrimary: "联系我们",
+    ctaSecondary: "通过 WhatsApp 联系",
+    ctaWhatsappMessage: "您好 Vika Design Lab！我想进一步了解你们团队的职业机会。",
   },
 };
