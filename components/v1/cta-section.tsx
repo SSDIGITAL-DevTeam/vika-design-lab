@@ -5,8 +5,8 @@ import { Icon } from "@/components/shared/icons";
 interface CtaSectionProps {
   heading: string;
   sub: string;
-  primary: string;
-  primaryHref: string;
+  primary?: string;
+  primaryHref?: string;
   secondary: string;
   secondaryHref: string;
   secondaryExternal?: boolean;
@@ -47,15 +47,17 @@ export function CtaSection({
           {/* Buttons — stacked on mobile, side-by-side on sm+ */}
           <div className="mx-auto mt-8 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
             {/* Primary: white filled */}
-            <Link
-              href={primaryHref}
-              className="inline-flex bg-paper text-ink transition-colors duration-200 hover:bg-paper/90"
-            >
-              <span className={BTN_INNER}>
-                {primary}
-                <Icon name="arrow" className="h-4 w-4 shrink-0" />
-              </span>
-            </Link>
+            {primary && primaryHref && (
+              <Link
+                href={primaryHref}
+                className="inline-flex bg-paper text-ink transition-colors duration-200 hover:bg-paper/90"
+              >
+                <span className={BTN_INNER}>
+                  {primary}
+                  <Icon name="arrow" className="h-4 w-4 shrink-0" />
+                </span>
+              </Link>
+            )}
 
             {/* Secondary: white outline */}
             {secondaryExternal ? (

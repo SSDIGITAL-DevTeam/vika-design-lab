@@ -1,13 +1,13 @@
 import type { SiteContent } from "./types";
 
-// English copy — tone and messaging aligned with the current content/zh.ts.
+// English copy — sourced from the client's final Figma design ("UIUX Space 2").
 export const en: SiteContent = {
   langTag: "en",
 
   brand: {
     name: "Vika Design Lab",
     tagline:
-      "Designed for your home, considered for your life. Every detail exists to make living more comfortable, more at ease.",
+      "Designed for your home. Built around your life. Every detail exists to make living more comfortable, more worry-free.",
   },
 
   nav: {
@@ -30,56 +30,56 @@ export const en: SiteContent = {
 
   home: {
     heroEyebrow: "Singapore Interior Design & Renovation",
-    heroHeadline: "Designed for Your Home, Considered for Your Life. Every Detail Exists to Make Living More Comfortable, More at Ease.",
+    heroHeadline: "Designed for your home. Built around your life. Every detail exists to make living more comfortable, more worry-free.",
     heroSub:
-      "If your project runs more than one month late, you get a full refund. It's written into your contract — for a renovation you can feel at ease about.",
-    cta: { primary: "Get a Free Quote", secondary: "See Our Work" },
+      "If your project runs more than a month behind schedule, you get a full refund — guaranteed in writing, in every contract. Because peace of mind should be part of the deal.",
+    cta: { primary: "Book a Free Consultation", secondary: "View Our Portfolio" },
     stats: [
       { value: "400+", label: "Homes Completed" },
-      { value: "5", label: "Years in Singapore" },
-      { value: "5-Year", label: "Workmanship Warranty" },
+      { value: "5", label: "Years Serving Singapore" },
+      { value: "5-Year", label: "Construction Warranty" },
     ],
     intro: {
       heading: "Designed for How You Actually Live",
       body: [
-        "A home is more than how it looks in photos — it should fit how you actually live. Over five years and 400-plus completed projects, we've helped HDB, condo, and landed homeowners across Singapore turn empty spaces into homes that truly feel right to live in.",
-        "Every project is led by two dedicated designers, and every timeline we agree on is put in writing — a promise we follow through with action.",
+        "A home is more than just visual beauty — it should reflect the way you live. Over the past five years, we've completed more than 400 residential projects, helping homeowners across Singapore's HDB flats, condominiums, and landed properties transform empty spaces into homes that truly fit their lives — and are built to be lived in for years to come.",
+        "Every project is personally overseen by two dedicated designers. Every timeline commitment is written into the contract — because we believe in backing up our promises with action.",
       ],
     },
     usp: {
-      eyebrow: "Our Difference",
-      heading: "Why Homeowners Choose Vika",
-      sub: "Six reasons more homeowners in Singapore are choosing Vika — and recommending us to the people they care about.",
+      eyebrow: "Service Advantages",
+      heading: "Why Homeowners Choose Vika Design Lab",
+      sub: "Six reasons why more Singapore homeowners are choosing Vika — and recommending us to the people they trust.",
       cards: [
         {
           icon: "shield",
-          title: "Full Refund If Your Project Runs Late",
-          body: "If your project is delayed by more than one month, you get a full refund — guaranteed in writing, in your contract.",
+          title: "Full Refund Guarantee",
+          body: "If your project falls more than a month behind schedule, you're entitled to a full refund under our contract. Every promise we make is written down — never just a verbal assurance.",
         },
         {
           icon: "users",
           title: "Two Designers on Every Project",
-          body: "Every project is handled by two dedicated designers — for smoother communication, design continuity, and less disruption if someone's away.",
+          body: "Every project is handled by two dedicated designers working in tandem, ensuring smooth communication, consistent design direction, and minimal disruption even if staffing changes.",
         },
         {
           icon: "cube",
-          title: "3D Immersive Design Preview",
-          body: "Before a single wall is touched, you'll walk through your future home in full 3D, so you can get a feel for the space in advance.",
+          title: "Preview Your Future Home in Full 3D",
+          body: "Before construction begins, experience your home through a complete 3D walkthrough — so you can see and feel every detail before it's real.",
         },
         {
           icon: "clock",
-          title: "Quote in Under a Week",
-          body: "Most clients receive a detailed, itemised quote within a week of our first meeting.",
+          title: "Detailed Quote Within 7 Days",
+          body: "Most projects receive a full quotation and cost breakdown within a week of our first consultation.",
         },
         {
           icon: "tag",
-          title: "Considered Pricing, Without Compromise",
-          body: "We keep pricing fair and considered — good design shouldn't have to mean a high price tag.",
+          title: "Budget-Conscious, Quality-Driven",
+          body: "Smart budgeting without compromising on craftsmanship. We believe great design doesn't have to come with a high price tag.",
         },
         {
           icon: "badge",
-          title: "5-Year Workmanship Warranty",
-          body: "Every project comes with a 5-year workmanship warranty, so you can stay at ease after moving in — if any issue comes up, we're still here to help.",
+          title: "5 Years of Construction Warranty",
+          body: "Enjoy up to 5 years of post-renovation support, so you can move in with confidence — and count on us if any issues arise down the line.",
         },
       ],
     },
@@ -88,37 +88,37 @@ export const en: SiteContent = {
       tiles: [
         {
           title: "Interior Design",
-          desc: "Space planning, concept development, material selection.",
+          desc: "From space planning to concept development and material selection, we craft ideal homes tailored to your lifestyle.",
         },
         {
-          title: "Full Renovation Works",
-          desc: "Carpentry, electrical, plumbing, tiling, painting.",
+          title: "Full Home Renovation",
+          desc: "Covering carpentry, electrical, plumbing, masonry, and painting — a true one-stop renovation service.",
         },
         {
-          title: "3D Design Visualisation",
-          desc: "Walk through your home before construction begins.",
+          title: "3D Panoramic Preview",
+          desc: "Step into your future home before construction even begins, and experience every space and detail firsthand.",
         },
         {
-          title: "BTO & Resale Packages",
-          desc: "Bundled solutions for new and existing flats.",
+          title: "BTO & Resale Renovation",
+          desc: "Tailored, end-to-end renovation solutions for new BTO flats and resale homes alike.",
         },
         {
-          title: "Speciality Spaces",
-          desc: "Pet-friendly homes, kids' themed rooms, smart home integration.",
+          title: "Specialty Space Design",
+          desc: "From pet-friendly homes to child-friendly spaces and smart home integration — designed around how you live.",
         },
       ],
-      cta: "Explore All Our Services",
+      cta: "View All Services",
     },
     portfolioPreview: {
-      eyebrow: "Selected Work",
-      heading: "Homes we've transformed across Singapore.",
-      sub: "HDB, condo, and landed homes across Singapore. A cross-section of completed projects, each one built around its owners.",
-      cta: "Explore Full Portfolio",
+      eyebrow: "Featured Projects",
+      heading: "Real Homes We've Brought to Life",
+      sub: "From HDB flats and condominiums to landed properties across Singapore, every project is designed around how our homeowners live — turning each space into a true extension of home.",
+      cta: "View Full Portfolio",
     },
     testimonials: {
-      eyebrow: "Client Reviews",
-      heading: "What They Say About Us",
-      sub: "Real feedback, shared after they moved in.",
+      eyebrow: "Customer Reviews",
+      heading: "Hear It From Our Homeowners",
+      sub: "Real feedback, straight from families who've settled into their new homes.",
       items: [
         {
           quote:
@@ -141,9 +141,9 @@ export const en: SiteContent = {
       ],
     },
     partners: {
-      eyebrow: "Trusted Partners",
-      heading: "The brands behind every project.",
-      sub: "We work with certified suppliers and established brands. Every material, fixture, and finish is quality-checked before it goes into your home.",
+      eyebrow: "Partner Brands",
+      heading: "Trusted Partners We Work With",
+      sub: "We collaborate with carefully vetted suppliers and renowned brands for the long term. From materials and fittings to the finest finishing details, every choice is rigorously assessed — so quality, beauty, and durability always go hand in hand.",
     },
     trust: {
       heading: "Registered, certified, and insured for your peace of mind.",
@@ -167,17 +167,17 @@ export const en: SiteContent = {
   about: {
     title: "Why Choose Vika Design Lab?",
     subtitle:
-      "Vika Design Lab was founded on a simple idea: homeowners in Singapore deserve a more transparent, more accountable, and more reassuring renovation experience.",
+      "Vika Design Lab was founded on a simple belief — that every Singapore homeowner deserves a renovation experience built on transparency, accountability, and peace of mind.",
     storyLabel: "Our Story",
     story: [
-      "It started with one designer, and years spent watching the same story repeat: homeowners paying their deposit in good faith, then waiting months with little to show for it.",
-      "The full-refund guarantee was born from that gap — not a marketing line, but a written commitment. If your renovation runs more than one month late due to our oversight, you get a full refund. In your contract.",
-      "Five years and 400+ homes later, we've built a brand homeowners recommend to their families and friends — because it delivered what it promised.",
+      "As a solo designer with years in the industry, I kept watching the same story play out — homeowners paying their deposit in good faith, only to be met with endless delays and no progress in sight.",
+      "That's where the full refund promise came from — not a marketing tagline, but a commitment written into every contract. If a project falls more than a month behind due to us, you get your money back. In full.",
+      "Five years and over 400 homes later, we've built a brand that homeowners are proud to recommend to their own family and friends — because we followed through on what we promised.",
     ],
     founderQuote: {
       quote:
-        "It reflects our commitment to standing behind every promise we make — and our belief that good design has to be built on trust.",
-      author: "Dion, Founder of Vika Design Lab",
+        "It means we take every promise seriously, and we believe good design should be built on trust.",
+      author: "Dion, Founder, Vika Design Lab",
     },
     missionLabel: "Our Mission",
     mission:
@@ -186,17 +186,17 @@ export const en: SiteContent = {
     vision:
       "To become the most trusted interior design company in Singapore: the name homeowners recommend to the people they care about most.",
     process: {
-      heading: "Our Promise Is Backed by a Process",
+      heading: "Every Promise, Backed by a Proven Process",
       body: [
-        "On-time delivery isn't left to chance — it comes from clear project management, regular site visits, and transparent communication throughout construction.",
-        "Every project is followed through by a dedicated team — from site inspections to contractor coordination to progress tracking — so each phase moves forward smoothly. If anything changes, we'll reach out first, explain what's happening, and lay out a clear plan, so you're never left guessing.",
-        "We aim to deliver every project on time, through solid project management and ongoing communication at every stage. If the schedule needs to shift, we'll tell you in advance and confirm the next steps — not leave you waiting to find out.",
+        "On-time delivery isn't left to chance — it comes from clear project management, regular on-site inspections, and transparent communication throughout the entire renovation.",
+        "Every project is overseen by a dedicated team, from site inspections to work coordination and progress tracking, ensuring each phase moves forward smoothly. If any changes or adjustments arise, we proactively reach out — explaining the situation clearly and offering solutions, so you're always kept in the loop.",
+        "We're committed to on-time delivery, driven by disciplined project management and constant communication at every stage. If the schedule ever needs to shift, we'll let you know in advance — with a clear plan for what comes next, so you're never left waiting in the dark.",
       ],
     },
     designers: {
       heading: "Meet Our Designers",
       intro:
-        "Care, attention, and patience aren't just words here — they describe how every project runs, from our first conversation through design, construction, and final handover.",
+        "Care, attention, and patience aren't just words we believe in — they shape how we work on every project. From the very first conversation, through design and construction, all the way to handover, we walk alongside every homeowner with clear communication and thoughtful service, every step of the way.",
       team: [
         { name: "Dion Yeoh", role: "Lead Designer" },
         { name: "Zheng Li Yeoh", role: "Senior Designer" },
@@ -209,16 +209,16 @@ export const en: SiteContent = {
   services: {
     title: "Our Services",
     subtitle:
-      "From design to delivery, one team sees it through. Interior design, full renovation, 3D visualisation, and renovation packages — all under a single contract.",
-    coreEyebrow: "What We Offer",
-    coreHeading: "Four services, built around your space.",
+      "One team, from design to delivery — fully accountable at every step. Space planning, hands-on construction, 3D visualization, and full renovation packages, all brought together under a single contract to plan and realize your entire home.",
+    coreEyebrow: "Our Services",
+    coreHeading: "Four Services, Every Space Covered",
     coreSub:
-      "Whether you're renovating a new home, refreshing an old one, or just want to understand your budget range first, we offer clear, complete service options.",
+      "Whether you're renovating a new home, revamping an older one, or simply want to understand your budget upfront, we offer a clear, complete service plan for every need.",
     core: [
       {
         icon: "home",
         title: "Interior Design",
-        body: "Design starts with understanding how you actually live — storage needs, daily routines, pets, working from home. The space should fit your life, not the other way around.",
+        body: "Design starts with understanding how you live. We begin with your daily habits — storage needs, lifestyle rhythm, pets, working from home, and more — so your space truly fits your life, instead of the other way around.",
         includedLabel: "What's included",
         included: [
           "Lifestyle consultation",
@@ -230,9 +230,9 @@ export const en: SiteContent = {
       },
       {
         icon: "shield",
-        title: "Full Renovation Works",
-        body: "One team sees your project from construction through to delivery. We manage carpentry, electrical, plumbing, tiling, and painting under one roof, so the process stays transparent and easy to follow.",
-        includedLabel: "Trades we cover",
+        title: "Full Home Renovation",
+        body: "From construction to handover, one dedicated team sees it through. With unified project management, our in-house team coordinates every trade and timeline — keeping the entire process more transparent, and more reassuring.",
+        includedLabel: "What's Covered",
         included: [
           "Carpentry",
           "Electrical",
@@ -245,8 +245,8 @@ export const en: SiteContent = {
       {
         icon: "tag",
         title: "Renovation Packages",
-        body: "A clearer way to plan your budget and scope. Common renovation needs bundled into a straightforward package, so you know roughly what to expect before committing to a full design brief.",
-        includedLabel: "Package types",
+        body: "Plan your budget and scope with clarity from the start. We consolidate common renovation needs into clear, defined packages — so homeowners can easily understand the full investment before work even begins.",
+        includedLabel: "Available Packages",
         included: [
           "BTO Full-House",
           "Resale HDB",
@@ -256,8 +256,8 @@ export const en: SiteContent = {
       },
       {
         icon: "cube",
-        title: "3D Design Visualisation",
-        body: "See your future home before construction starts. A full 3D walkthrough helps you understand the proportions, materials, and feel of the space ahead of time.",
+        title: "3D Panoramic Preview",
+        body: "See your future home before construction even begins. With a complete 3D rendering, it's easier to visualize proportions, materials, and how each space will actually feel to live in.",
         includedLabel: "Why it matters",
         included: [
           "Catch layout issues early",
@@ -268,7 +268,7 @@ export const en: SiteContent = {
       },
     ],
     specialityEyebrow: "Speciality Services",
-    specialityHeading: "Spaces designed around how you actually live.",
+    specialityHeading: "Spaces Designed Around How You Actually Live.",
     speciality: [
       {
         icon: "paw",
@@ -291,10 +291,10 @@ export const en: SiteContent = {
         body: "A high-end upgrade for a rental unit, master bedroom, or single space — with a plan to reverse it if you move.",
       },
     ],
-    materialsEyebrow: "Materials",
+    materialsEyebrow: "Material Quality",
     materials: {
-      heading: "What we build with.",
-      sub: "Materials chosen for how they perform over time: air quality, durability, and long-term value.",
+      heading: "The Materials We Use.",
+      sub: "Our material standards go beyond aesthetics — durability, air quality, and long-term value matter just as much.",
       body: [
         "We use low-formaldehyde boards throughout all carpentry work. Better indoor air quality from day one. For clients who want it, aluminium carpentry upgrades are available — they outlast conventional timber significantly.",
         "Selected products come with manufacturer warranties from 10 years to lifetime. Our workmanship carries a 5-year warranty — if something we built fails within five years, we fix it.",
@@ -303,59 +303,59 @@ export const en: SiteContent = {
         {
           icon: "leaf",
           title: "Low-Formaldehyde Boards",
-          body: "Used across all carpentry. Better indoor air quality from the day you move in.",
+          body: "All carpentry projects use low-formaldehyde boards, so your living environment feels safer and more comfortable from day one.",
         },
         {
           icon: "badge",
-          title: "Long-Term Manufacturer Warranties",
-          body: "Selected products come with warranties from 10 years to lifetime, depending on the spec.",
+          title: "Manufacturer Warranty Support",
+          body: "Premium materials and fittings come with original manufacturer warranties, ranging from fixed terms to lifetime coverage depending on the product.",
         },
         {
           icon: "shield",
-          title: "5-Year Workmanship Warranty",
-          body: "On everything we build. If it fails within five years, we come back and fix it.",
+          title: "5-Year Construction Warranty",
+          body: "Every project we complete comes with a 5-year construction warranty. If any construction-related issues arise, we'll follow through and resolve them.",
         },
       ],
     },
-    pricingEyebrow: "Pricing",
+    pricingEyebrow: "Pricing Approach",
     payment: {
-      heading: "Transparent pricing, a reassuring start.",
-      sub: "Payments follow project milestones, with scope and terms clearly laid out in your contract.",
+      heading: "Transparent Planning, Confident Start.",
+      sub: "Payment is structured around project milestones, with the full scope and terms clearly laid out in the contract.",
       body: "We accept credit card payments — a convenience many renovation firms in Singapore don't offer. Payments are tied to project stages as work progresses.",
       refundQuote:
-        "If your project runs more than one month past the agreed deadline due to our oversight, you get a full refund — written into your contract.",
+        "\"More than a month behind schedule? Full refund.\" For any delay caused by us, this guarantee is written directly into the contract.",
       refundNote:
-        "In five years, we have never had to pay one out.",
+        "In five years, we've never had to activate it.",
       milestones: [
         {
           icon: "users",
-          title: "Free Consultation",
-          desc: "We look at your space, talk through what you want, and put together a detailed quote. No strings attached, no pressure to decide.",
+          title: "Understand First, Quote Second",
+          desc: "No strings attached, no pressure to decide.",
         },
         {
           icon: "cube",
-          title: "Design Sign-Off",
-          desc: "We start only once every detail has been confirmed.",
+          title: "Confirm First, Build Second",
+          desc: "Every detail reviewed before a single thing begins.",
         },
         {
           icon: "check",
-          title: "Pay as Work Progresses",
-          desc: "A clear process, so you always know where things stand.",
+          title: "Milestone-Based Payments",
+          desc: "A clear process, a calmer experience.",
         },
       ],
     },
     cta: {
       heading: "Ready to get started?",
-      sub: "Tell us about your home and what you have in mind. We will send a detailed quote within a week.",
-      primary: "Get a Free Quote",
-      secondary: "See Our Portfolio",
+      sub: "Tell us about your home and what you're looking for — we'll get back to you with a detailed quote within a week.",
+      primary: "Book a Free Consultation",
+      secondary: "View Our Portfolio",
     },
   },
 
   portfolio: {
     title: "Our Work",
     subtitle:
-      "Over 400 homes across Singapore. Each one designed around the people who live there.",
+      "Over 400 real homes across Singapore. Every space, designed around how you live.",
     filters: ["All", "HDB", "Condo", "Landed"],
     captionPrefix: "Project",
     albumDetailLabels: {
@@ -365,21 +365,21 @@ export const en: SiteContent = {
       sqftUnit: "sqft",
     },
     cta: {
-      heading: "Every home starts with a conversation.",
-      body: "Every project here began with one conversation. Tell us what you have in mind for your home, and let's start there.",
-      primary: "Get a Free Quote",
-      secondary: "WhatsApp Us Now",
+      heading: "Every Home Begins With One Sentence: \"This Is How I Want to Live.\"",
+      body: "Every project here starts with a conversation. Tell us how you envision your home, and let's begin together.",
+      primary: "Book a Free Consultation",
+      secondary: "Get in Touch",
     },
   },
 
   contact: {
-    title: "Let's Talk About Your Home",
+    title: "Let's Talk About Your Dream Home",
     subtitle:
-      "Whether you already have ideas or you're still exploring, we're happy to help you plan the home you're picturing.",
+      "Whether you already have ideas in mind or you're still exploring, we're here to help plan the home you've always envisioned.",
     detailsHeading: "Contact Us",
-    detailsNote: "We typically respond within one business day.",
+    detailsNote: "We typically get back to you within one business day.",
     labels: {
-      phone: "Phone",
+      phone: "WhatsApp",
       whatsapp: "WhatsApp",
       email: "Email",
       showroom: "Showroom",
@@ -388,7 +388,7 @@ export const en: SiteContent = {
     hoursValue: "Monday – Saturday, 10am – 7pm",
     form: {
       heading: "Start Planning Your Dream Home",
-      sub: "Share your needs and we'll be in touch within one business day with a free initial consultation.",
+      sub: "Share your requirements with us, and we'll get in touch within one business day to offer you a free initial consultation.",
       name: { label: "Full Name", placeholder: "Your name", required: true },
       phone: {
         label: "Phone Number",
@@ -420,12 +420,12 @@ export const en: SiteContent = {
       errorRequired: "This field is required.",
     },
     reassurance: {
-      body: "Most people who reach out to us are cautious, and for good reason. A friend's renovation that dragged on for months. A deposit paid with little to show for it. We built Vika to be the answer to that: clear contracts, milestone-based payments, and a full-refund guarantee written in from day one. If something comes up, you hear from us first.",
+      body: "Many clients who reach out to us come in feeling especially cautious about starting a renovation. Some have watched a friend's project drag on for months past deadline; others have experienced paying upfront only to see little progress afterward. Vika was founded on a simple idea — to bring a more transparent, more reassuring renovation experience: clear, well-defined contracts, milestone-based payments, and a refund guarantee written into every contract from day one. Throughout the process, we stay proactive in our communication, so you always know exactly where your project stands.",
       icons: [
-        "Full Refund if Delayed Over 1 Month, Written in Your Contract",
-        "5-Year Workmanship Warranty",
-        "Qanvast Supertrust — Project Insurance up to SGD 50,000",
-        "Two Designers Assigned to Every Project",
+        "Full refund available under contract if the project runs more than a month behind schedule",
+        "5-year construction warranty included",
+        "Qanvast SuperTrust Protection Plan | Project insurance coverage up to S$50,000",
+        "Every project overseen by two dedicated designers",
       ],
     },
     map: {
@@ -445,12 +445,12 @@ export const en: SiteContent = {
 
   // Placeholder copy — layout ready ahead of confirmed role details from the client.
   recruitment: {
-    title: "Join Our Team",
+    title: "Join Us",
     subtitle:
-      "We're expanding, and inviting Interior Designers to join our team.",
+      "We're growing, and we're looking for talented interior designers to join our team.",
     cultureHeading: "Why Join Vika",
     culture:
-      "We're a small, hands-on team that sees projects through from first sketch to final handover. You'll work closely with the people who founded this company, on real homes across Singapore — not just render decks.",
+      "We're a lean, execution-driven team that stays hands-on from first sketch to final handover. You'll work directly with the founding team, contributing to real residential projects across Singapore — not just producing renders.",
     viewPositionsLabel: "View Open Positions",
     positionsEyebrow: "Open Positions",
     positions: [
@@ -472,9 +472,9 @@ export const en: SiteContent = {
     ],
     ctaHeading: "Don't see the right role?",
     ctaSub:
-      "We're always happy to hear from good people. Send us a message and we'll keep you in mind.",
+      "We're always open to hearing from great talent. Drop us a message — we'll keep you in mind.",
     ctaPrimary: "Contact Us",
-    ctaSecondary: "WhatsApp Us",
+    ctaSecondary: "Message Us on WhatsApp",
     ctaWhatsappMessage:
       "Hi Vika Design Lab! I'd like to find out about career opportunities with your team.",
   },

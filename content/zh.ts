@@ -429,11 +429,11 @@ export const zh: SiteContent = {
 
   // 占位内容 — 版面先行搭建，待客户确认职位细节后再补充正式内容。
   recruitment: {
-    title: "加入我们",
-    subtitle: "我们正在扩编，诚邀室内设计师加入我们的团队。",
-    cultureHeading: "为什么加入 Vika",
+    title: "加入 Vika",
+    subtitle: "设计，不只是完成一个项目。更是创造一个让人真正想回家的空间。我们正在寻找志同道合的设计师，一起参与真实的住宅项目，与团队共同成长。",
+    cultureHeading: "为什么选择 Vika？",
     culture:
-      "我们是一个精简、注重实际执行的团队，从最初的草图到最终交付都亲自跟进。你将直接与创办团队合作，参与新加坡各地真实的住宅项目——不只是制作效果图。",
+      "在这里，你不会只是负责其中一个环节。从设计构思到施工交付，每一个项目都由团队共同参与。你将与经验丰富的设计师并肩合作，把每一个想法真正落实到客户的生活中。",
     viewPositionsLabel: "查看职位空缺",
     positionsEyebrow: "职位空缺",
     positions: [
@@ -441,12 +441,12 @@ export const zh: SiteContent = {
         title: "室内设计师",
         location: "新加坡",
         intro:
-          "我们正在寻找室内设计师加入新加坡团队。具体经验要求将在确认后补充于此。",
-        highlightsLabel: "我们期待的特质",
+          "我们正在寻找对住宅设计充满热忱的室内设计师加入团队，共同打造更多优质作品。",
+        highlightsLabel: "我们期待这样的你",
         highlights: [
-          "具备住宅室内设计经验（详细要求待确认）",
-          "有作品集可供参考",
-          "常驻新加坡",
+          "热爱住宅室内设计",
+          "拥有设计作品集",
+          "注重细节，乐于沟通",
         ],
         applyLabel: "通过 WhatsApp 申请",
         whatsappMessage:
@@ -454,7 +454,7 @@ export const zh: SiteContent = {
       },
     ],
     ctaHeading: "没有找到合适的职位？",
-    ctaSub: "我们始终欢迎优秀人才主动联系，留言给我们，我们会记住你。",
+    ctaSub: "如果目前没有符合你的职位，也欢迎主动与我们联系。",
     ctaPrimary: "联系我们",
     ctaSecondary: "通过 WhatsApp 联系",
     ctaWhatsappMessage: "您好 Vika Design Lab！我想进一步了解你们团队的职业机会。",

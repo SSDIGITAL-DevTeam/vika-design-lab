@@ -91,7 +91,7 @@ export function About({ content, lang }: ViewProps) {
                 {about.storyLabel}
               </p>
               <h2 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
-                {isZh ? "创办人的初心" : "Founder Story"}
+                {isZh ? "创办人的初心" : "The Founder's Why"}
               </h2>
             </Reveal>
             <div className="mt-8 space-y-7">
@@ -172,7 +172,7 @@ export function About({ content, lang }: ViewProps) {
           </Reveal>
           <Reveal delay={120}>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              {isZh ? "施工流程" : "Our Process"}
+              {isZh ? "施工流程" : "Construction Process"}
             </p>
             <h2 className="mt-2 mb-4 text-xl font-semibold text-ink sm:mb-5 sm:text-2xl lg:text-3xl">
               {about.process.heading}
@@ -201,7 +201,7 @@ export function About({ content, lang }: ViewProps) {
                   {isZh ? "个月" : "MONTH"}
                 </span>
                 <span className="mt-1 hidden font-mono text-[10px] uppercase tracking-widest text-paper/40 md:mt-4 md:block">
-                  {isZh ? "目标交付周期" : "TARGET DELIVERY"}
+                  {isZh ? "目标交付周期" : "TARGET DELIVERY TIMELINE"}
                 </span>
               </div>
             </div>
@@ -214,7 +214,7 @@ export function About({ content, lang }: ViewProps) {
               <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-paper/40 sm:mt-5 sm:text-[11px]">
                 {isZh
                   ? "工程延期保障 - 若因我方原因导致工程延期超过一个月，可依据合约申请退款保障。"
-                  : "Delay over 1 month → full refund, in writing"}
+                  : "Delay Protection Guarantee → If a project runs more than a month behind due to us, you're covered by our refund policy under the contract."}
               </p>
             </div>
           </div>
@@ -360,13 +360,13 @@ export function Services({ content, lang }: ViewProps) {
       <Section bordered>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            {isZh ? "项目案例" : "Our Work"}
+            {isZh ? "项目案例" : "Project Showcase"}
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
-            {isZh ? "从组屋到有地住宅，遍布全新加坡。" : "From HDB to landed, built across Singapore."}
+            {isZh ? "从组屋到有地住宅，遍布全新加坡。" : "From HDB Flats to Landed Homes, Across All of Singapore"}
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-            {isZh ? "每一个空间，都围绕生活而设计。" : "Every project is designed around the people who actually live in it."}
+            {isZh ? "每一个空间，都围绕生活而设计。" : "Every space, designed around how you live."}
           </p>
         </Reveal>
       </Section>
@@ -611,9 +611,8 @@ export function Contact({ content }: ViewProps) {
 
 const RECRUITMENT_CULTURE_PHOTO = getAlbumById("landed-jalan-kuras")?.photos[1];
 
-export function Recruitment({ content, lang }: ViewProps) {
+export function Recruitment({ content }: ViewProps) {
   const { recruitment } = content;
-  const toContact = pagePath(lang, "contact");
   if (!recruitment) return null;
 
   return (
@@ -698,8 +697,6 @@ export function Recruitment({ content, lang }: ViewProps) {
       <CtaSection
         heading={recruitment.ctaHeading}
         sub={recruitment.ctaSub}
-        primary={recruitment.ctaPrimary}
-        primaryHref={toContact}
         secondary={recruitment.ctaSecondary}
         secondaryHref={buildWhatsAppLink(recruitment.ctaWhatsappMessage)}
         secondaryExternal
