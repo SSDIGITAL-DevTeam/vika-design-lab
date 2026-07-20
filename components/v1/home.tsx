@@ -42,10 +42,13 @@ export function Home({ content, lang }: ViewProps) {
           {/* Left: headline */}
           <div>
             <h1
-              className="animate-fade-up text-balance text-3xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-4xl lg:text-5xl"
+              className="animate-fade-up text-balance text-3xl font-bold leading-[1.05] tracking-tight text-ink sm:text-4xl lg:text-5xl"
             >
               {home.heroHeadline}
             </h1>
+            <p className="animate-fade-up mt-4 text-base leading-relaxed text-ink-soft sm:text-lg">
+              {home.heroHeadlineSub}
+            </p>
             {/* Yellow bar draws in from left */}
             <span
               className="animate-draw-line mt-5 block h-1 bg-yellow"
@@ -221,7 +224,6 @@ export function Home({ content, lang }: ViewProps) {
       <PortfolioPreview
         toPortfolio={toPortfolio}
         eyebrow={home.portfolioPreview.eyebrow}
-        heading={home.portfolioPreview.heading}
         sub={home.portfolioPreview.sub}
         cta={home.portfolioPreview.cta}
       />

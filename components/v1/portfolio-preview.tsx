@@ -21,12 +21,11 @@ const PREVIEW = [
 interface PortfolioPreviewProps {
   toPortfolio: string;
   eyebrow: string;
-  heading: string;
   sub: string;
   cta: string;
 }
 
-export function PortfolioPreview({ toPortfolio, eyebrow, heading, sub, cta }: PortfolioPreviewProps) {
+export function PortfolioPreview({ toPortfolio, eyebrow, sub, cta }: PortfolioPreviewProps) {
   const [selected, setSelected] = useState<string | null>(null);
   // lastSrc persists the image src during the close animation so it doesn't
   // snap to blank while the overlay is still fading out.
@@ -63,9 +62,6 @@ export function PortfolioPreview({ toPortfolio, eyebrow, heading, sub, cta }: Po
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
               {eyebrow}
             </p>
-            <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
-              {heading}
-            </h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
               {sub}
             </p>

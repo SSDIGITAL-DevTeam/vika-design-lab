@@ -135,6 +135,7 @@ export interface SiteContent {
   home: {
     heroEyebrow: string;
     heroHeadline: string;
+    heroHeadlineSub: string;
     heroSub: string;
     cta: CtaPair;
     stats: Stat[];
@@ -152,7 +153,6 @@ export interface SiteContent {
     };
     portfolioPreview: {
       eyebrow: string;
-      heading: string;
       sub: string;
       cta: string;
     };
@@ -193,7 +193,6 @@ export interface SiteContent {
     subtitle: string;
     coreEyebrow: string;
     coreHeading: string;
-    coreSub: string;
     core: CoreService[];
     specialityEyebrow: string;
     specialityHeading: string;

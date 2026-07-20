@@ -34,7 +34,8 @@ export const zh: SiteContent = {
 
   home: {
     heroEyebrow: "新加坡室内设计与装修",
-    heroHeadline: "为家而设计，为生活而思考。每一个细节，都为了让居住更舒适、更安心。",
+    heroHeadline: "为家而设计，为生活而思考。",
+    heroHeadlineSub: "每一个细节，都为了让居住更舒适、更安心。",
     heroSub:
       "工程延期超过一个月，全额退款保障。承诺写入合约，让每一次装修更安心。",
     cta: { primary: "预约免费咨询", secondary: "查看设计作品" },
@@ -103,7 +104,6 @@ export const zh: SiteContent = {
     },
     portfolioPreview: {
       eyebrow: "精选作品",
-      heading: "我们打造过的真实居住空间。",
       sub: "从新加坡各地的组屋、公寓到有地住宅，每一个作品都围绕居住者的生活方式而设计，让空间真正成为家的延伸。",
       cta: "查看完整作品集",
     },
@@ -197,8 +197,6 @@ export const zh: SiteContent = {
       "从设计到交付，一个团队，全程负责。空间设计、施工执行、3D 空间体验与装修方案整合，以一份合约完成整个家的规划与实现。",
     coreEyebrow: "我们的服务",
     coreHeading: "四大服务，满足不同空间需求。",
-    coreSub:
-      "无论是新房装修、旧屋翻新，或希望先了解预算范围，我们都提供清晰且完整的服务方案。",
     core: [
       {
         icon: "home",

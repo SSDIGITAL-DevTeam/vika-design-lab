@@ -40,7 +40,7 @@ export function PartnerMarquee({ eyebrow, heading, sub }: PartnerMarqueeProps) {
               <img
                 src={p.src}
                 alt={p.alt}
-                className="max-h-10 w-auto object-contain grayscale opacity-50 transition-all duration-300 hover:grayscale-0 hover:opacity-90"
+                className="max-h-10 w-auto object-contain transition-all duration-300"
                 loading="lazy"
               />
             </div>

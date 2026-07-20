@@ -91,7 +91,7 @@ export function About({ content, lang }: ViewProps) {
                 {about.storyLabel}
               </p>
               <h2 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
-                {isZh ? "创办人的初心" : "The Founder's Why"}
+                {isZh ? "创办人的初心" : "The Founder's Beginning"}
               </h2>
             </Reveal>
             <div className="mt-8 space-y-7">
@@ -172,7 +172,7 @@ export function About({ content, lang }: ViewProps) {
           </Reveal>
           <Reveal delay={120}>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              {isZh ? "施工流程" : "Construction Process"}
+              {isZh ? "施工流程" : "Our Process"}
             </p>
             <h2 className="mt-2 mb-4 text-xl font-semibold text-ink sm:mb-5 sm:text-2xl lg:text-3xl">
               {about.process.heading}
@@ -214,7 +214,7 @@ export function About({ content, lang }: ViewProps) {
               <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-paper/40 sm:mt-5 sm:text-[11px]">
                 {isZh
                   ? "工程延期保障 - 若因我方原因导致工程延期超过一个月，可依据合约申请退款保障。"
-                  : "Delay Protection Guarantee → If a project runs more than a month behind due to us, you're covered by our refund policy under the contract."}
+                  : "Delayed by over 1 month? Full refund, guaranteed in writing."}
               </p>
             </div>
           </div>
@@ -318,7 +318,6 @@ export function Services({ content, lang }: ViewProps) {
           <div className="mb-10">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">{services.coreEyebrow}</p>
             <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">{services.coreHeading}</h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">{services.coreSub}</p>
           </div>
         </Reveal>
         <div className="divide-y divide-line border-y border-line">
@@ -360,13 +359,13 @@ export function Services({ content, lang }: ViewProps) {
       <Section bordered>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            {isZh ? "项目案例" : "Project Showcase"}
+            {isZh ? "项目案例" : "Our Work"}
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
-            {isZh ? "从组屋到有地住宅，遍布全新加坡。" : "From HDB Flats to Landed Homes, Across All of Singapore"}
+            {isZh ? "从组屋到有地住宅，遍布全新加坡。" : "Thoughtfully designed homes across Singapore"}
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-            {isZh ? "每一个空间，都围绕生活而设计。" : "Every space, designed around how you live."}
+            {isZh ? "每一个空间，都围绕生活而设计。" : "Every space is tailored to the people who call it home."}
           </p>
         </Reveal>
       </Section>
