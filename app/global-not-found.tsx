@@ -37,11 +37,12 @@ export const metadata: Metadata = {
 export default function GlobalNotFound() {
   const contentEn = getContent("en");
   const contentZh = getContent("zh");
+  const contentMs = getContent("ms");
 
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable} ${notoSC.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <NotFoundContent contentEn={contentEn} contentZh={contentZh} />
+        <NotFoundContent contentEn={contentEn} contentZh={contentZh} contentMs={contentMs} />
       </body>
     </html>
   );

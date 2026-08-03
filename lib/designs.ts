@@ -1,7 +1,7 @@
 // Locale registry. Single source of truth for which locales exist, used by
 // routing, generateStaticParams, and the language switcher.
 
-export const SUPPORTED_LOCALES = ["en", "zh"] as const;
+export const SUPPORTED_LOCALES = ["en", "zh", "ms"] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = "en";
@@ -28,6 +28,7 @@ export const LOCALES: readonly Locale[] = activeLocalesFromEnv();
 export const LOCALE_LABELS: Record<Locale, string> = {
   en: "EN",
   zh: "中文",
+  ms: "BM",
 };
 
 export const hasLocale = (value: string): value is Locale =>
