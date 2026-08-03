@@ -141,7 +141,7 @@ export interface SiteContent {
     stats: Stat[];
     intro: { heading: string; body: string[] };
     usp: {
-      eyebrow: string;
+      eyebrow?: string;
       heading: string;
       sub: string;
       cards: UspCard[];
@@ -174,16 +174,27 @@ export interface SiteContent {
     title: string;
     subtitle: string;
     storyLabel: string;
+    storyHeading: string;
     story: string[];
     founderQuote: { quote: string; author: string };
     missionLabel: string;
     mission: string;
     visionLabel: string;
     vision: string;
+    processEyebrow: string;
     process: { heading: string; body: string[] };
+    /** Yellow metric block under the process copy. */
+    delivery: {
+      value: string;
+      unit: string;
+      label: string;
+      note: string;
+    };
+    designersEyebrow: string;
     designers: {
       heading: string;
       intro: string;
+      joinLabel: string;
       team: Designer[];
     };
   };
@@ -194,6 +205,8 @@ export interface SiteContent {
     coreEyebrow: string;
     coreHeading: string;
     core: CoreService[];
+    /** Section header above the portfolio marquee. */
+    work: { eyebrow: string; heading: string; sub: string };
     specialityEyebrow: string;
     specialityHeading: string;
     specialityIntro?: string;
@@ -253,7 +266,13 @@ export interface SiteContent {
       whatsappCta: string;
       errorRequired: string;
     };
-    reassurance: { body: string; icons: string[] };
+    reassurance: {
+      /** One entry per paragraph. */
+      body: string[];
+      /** Optional clause closing the first paragraph in bold. */
+      highlight?: string;
+      icons: string[];
+    };
     map: { heading: string; directions: string };
   };
 

@@ -61,7 +61,6 @@ export function About({ content, lang }: ViewProps) {
   const { about } = content;
   const toContact = pagePath(lang, "contact");
   const toPortfolio = pagePath(lang, "portfolio");
-  const isZh = content.langTag.startsWith("zh");
   return (
     <>
       <PageHeader
@@ -91,7 +90,7 @@ export function About({ content, lang }: ViewProps) {
                 {about.storyLabel}
               </p>
               <h2 className="mt-3 text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
-                {isZh ? "创办人的初心" : "The Founder's Beginning"}
+                {about.storyHeading}
               </h2>
             </Reveal>
             <div className="mt-8 space-y-7">
@@ -172,7 +171,7 @@ export function About({ content, lang }: ViewProps) {
           </Reveal>
           <Reveal delay={120}>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              {isZh ? "施工流程" : "Our Process"}
+              {about.processEyebrow}
             </p>
             <h2 className="mt-2 mb-4 text-xl font-semibold text-ink sm:mb-5 sm:text-2xl lg:text-3xl">
               {about.process.heading}
@@ -194,14 +193,14 @@ export function About({ content, lang }: ViewProps) {
                 className="block font-mono text-[3rem] font-black leading-none tracking-tight text-yellow sm:text-[3.5rem] md:text-[4.5rem]"
                 aria-hidden
               >
-                1
+                {about.delivery.value}
               </span>
               <div className="md:mt-1">
                 <span className="block font-mono text-xs uppercase tracking-[0.2em] text-yellow/70">
-                  {isZh ? "个月" : "MONTH"}
+                  {about.delivery.unit}
                 </span>
                 <span className="mt-1 hidden font-mono text-[10px] uppercase tracking-widest text-paper/40 md:mt-4 md:block">
-                  {isZh ? "目标交付周期" : "TARGET DELIVERY TIMELINE"}
+                  {about.delivery.label}
                 </span>
               </div>
             </div>
@@ -212,9 +211,7 @@ export function About({ content, lang }: ViewProps) {
                 {about.process.body[2]}
               </p>
               <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-paper/40 sm:mt-5 sm:text-[11px]">
-                {isZh
-                  ? "工程延期保障 - 若因我方原因导致工程延期超过一个月，可依据合约申请退款保障。"
-                  : "Delayed by over 1 month? Full refund, guaranteed in writing."}
+                {about.delivery.note}
               </p>
             </div>
           </div>
@@ -226,7 +223,7 @@ export function About({ content, lang }: ViewProps) {
         <Reveal>
           <div className="mb-8">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              {isZh ? "我们的团队" : "Our Team"}
+              {about.designersEyebrow}
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
               {about.designers.heading}
@@ -238,7 +235,7 @@ export function About({ content, lang }: ViewProps) {
               href={pagePath(lang, "recruitment")}
               className="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-ink underline decoration-yellow decoration-2 underline-offset-4 transition-colors duration-200 hover:text-yellow-deep"
             >
-              {isZh ? "加入我们的团队" : "Join Our Team"}
+              {about.designers.joinLabel}
               <Icon name="arrow" className="h-3.5 w-3.5" />
             </a>
           </div>
@@ -301,7 +298,6 @@ const SPECIALITY_PHOTOS = [
 
 export function Services({ content, lang }: ViewProps) {
   const { services } = content;
-  const isZh = content.langTag.startsWith("zh");
   const toContact = pagePath(lang, "contact");
   const toPortfolio = pagePath(lang, "portfolio");
   return (
@@ -359,13 +355,13 @@ export function Services({ content, lang }: ViewProps) {
       <Section bordered>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            {isZh ? "项目案例" : "Our Work"}
+            {services.work.eyebrow}
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">
-            {isZh ? "从组屋到有地住宅，遍布全新加坡。" : "Thoughtfully designed homes across Singapore"}
+            {services.work.heading}
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-            {isZh ? "每一个空间，都围绕生活而设计。" : "Every space is tailored to the people who call it home."}
+            {services.work.sub}
           </p>
         </Reveal>
       </Section>
@@ -563,9 +559,21 @@ export function Contact({ content }: ViewProps) {
       <Section bordered>
         <div className="grid gap-8 md:grid-cols-[1.3fr_1fr]">
           <Reveal>
-            <p className="text-lg leading-relaxed text-ink-soft sm:text-xl">
-              {contact.reassurance.body}
-            </p>
+            <div className="space-y-5">
+              {contact.reassurance.body.map((p, i) => (
+                <p key={i} className="text-lg leading-relaxed text-ink-soft sm:text-xl">
+                  {p}
+                  {i === 0 && contact.reassurance.highlight && (
+                    <>
+                      {" "}
+                      <strong className="font-semibold text-ink">
+                        {contact.reassurance.highlight}
+                      </strong>
+                    </>
+                  )}
+                </p>
+              ))}
+            </div>
           </Reveal>
           <Reveal delay={120}>
             <ul className="space-y-3">

@@ -171,6 +171,7 @@ export const ms: SiteContent = {
     subtitle:
       "Kami percaya pengalaman renovasi yang baik bermula dengan ketelusan, komitmen, dan kepercayaan.",
     storyLabel: "Kisah Kami",
+    storyHeading: "Permulaan Vika",
     story: [
       "Vika bermula daripada pengalaman seorang pereka dalaman yang berulang kali melihat pemilik rumah meletakkan kepercayaan mereka kepada kontraktor, membayar deposit, namun terpaksa menunggu berbulan-bulan tanpa perkembangan yang jelas.",
       "Daripada pengalaman itulah lahirnya jaminan bayaran balik penuh kami. Bukan sekadar janji pemasaran, tetapi komitmen bertulis dalam setiap kontrak. Jika renovasi anda lewat melebihi sebulan disebabkan oleh kami, bayaran balik penuh akan diberikan.",
@@ -187,6 +188,7 @@ export const ms: SiteContent = {
     visionLabel: "Visi Kami",
     vision:
       "Menjadi jenama reka bentuk dalaman yang paling dipercayai di Singapura — pilihan yang disyorkan oleh pemilik rumah kepada keluarga dan rakan-rakan mereka.",
+    processEyebrow: "Proses Kami",
     process: {
       heading: "Setiap Janji Disokong oleh Proses yang Terbukti",
       body: [
@@ -195,10 +197,18 @@ export const ms: SiteContent = {
         "Perancangan yang teliti dan komunikasi yang telus memastikan setiap projek berjalan mengikut jadual. Sekiranya berlaku sebarang perubahan, anda akan dimaklumkan dengan segera.",
       ],
     },
+    delivery: {
+      value: "1",
+      unit: "BULAN",
+      label: "Sasaran Tempoh Siap",
+      note: "Lewat melebihi sebulan? Bayaran balik penuh, dijamin secara bertulis.",
+    },
+    designersEyebrow: "Pasukan Kami",
     designers: {
       heading: "Kenali Pereka Dalaman Kami",
       intro:
         "Kenali individu yang membimbing setiap projek, dari pertemuan pertama hingga penyerahan akhir.",
+      joinLabel: "Sertai Kami",
       team: [
         { name: "Dion Yeoh", role: "Pereka Bentuk Utama" },
         { name: "Zheng Li Yeoh", role: "Pereka Bentuk Kanan" },
@@ -266,7 +276,12 @@ export const ms: SiteContent = {
         ],
       },
     ],
-    specialityEyebrow: "Perkhidmatan Istimewa",
+    work: {
+      eyebrow: "Projek Kami",
+      heading: "Kediaman yang direka penuh teliti di seluruh Singapura",
+      sub: "Setiap ruang direka mengikut gaya hidup dan keperluan pemiliknya.",
+    },
+    specialityEyebrow:"Perkhidmatan Istimewa",
     specialityHeading: "Direka mengikut gaya hidup anda.",
     speciality: [
       {
@@ -416,7 +431,11 @@ export const ms: SiteContent = {
       errorRequired: "Ruangan ini wajib diisi.",
     },
     reassurance: {
-      body: "Kebanyakan pemilik rumah datang kepada kami dengan satu kebimbangan: Bolehkah kami percayakan renovasi kami? Itulah sebabnya Vika dibina atas kontrak yang jelas, bayaran mengikut pencapaian projek, dan jaminan bayaran balik penuh — supaya anda boleh merenovasi dengan yakin sejak hari pertama.",
+      body: [
+        "Kebanyakan pemilik rumah berkongsi kebimbangan yang sama —",
+        "Itulah sebabnya setiap projek disokong oleh kontrak yang jelas, jadual pembayaran yang telus, dan jaminan bayaran balik penuh.",
+      ],
+      highlight: "bolehkah mereka mempercayai renovasi kepada kami?",
       icons: [
         "Bayaran Balik Penuh Jika Projek Lewat Melebihi Sebulan",
         "Waranti Kerja Selama 5 Tahun",

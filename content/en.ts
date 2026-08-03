@@ -169,6 +169,7 @@ export const en: SiteContent = {
     subtitle:
       "At Vika Design Lab, we believe every homeowner deserves a renovation experience built on transparency, accountability, and peace of mind.",
     storyLabel: "Our Story",
+    storyHeading: "The Founder's Beginning",
     story: [
       "Vika began with a single designer who spent years watching the same story repeat: homeowners placing their trust and paying their deposits, only to face months of waiting with little progress.",
       "Our full-refund guarantee was born from this reality—not as a marketing slogan, but as a commitment written into every contract. If your renovation is delayed by more than one month due to our responsibility, you'll receive a full refund.",
@@ -185,6 +186,7 @@ export const en: SiteContent = {
     visionLabel: "Our Vision",
     vision:
       "To be Singapore's most trusted interior design company, recommended by homeowners to their family and friends.",
+    processEyebrow: "Our Process",
     process: {
       heading: "Every Promise Is Backed by a Proven Process",
       body: [
@@ -193,10 +195,18 @@ export const en: SiteContent = {
         "We keep every project on track through careful planning and clear communication. If anything changes, you'll be informed every step of the way.",
       ],
     },
+    delivery: {
+      value: "1",
+      unit: "MONTH",
+      label: "TARGET DELIVERY TIMELINE",
+      note: "Delayed by over 1 month? Full refund, guaranteed in writing.",
+    },
+    designersEyebrow: "Our Team",
     designers: {
       heading: "Meet Our Designers",
       intro:
         "Meet the people behind every project, guiding you from the first conversation to final handover with care and attention.",
+      joinLabel: "Join Our Team",
       team: [
         { name: "Dion Yeoh", role: "Lead Designer" },
         { name: "Zheng Li Yeoh", role: "Senior Designer" },
@@ -265,7 +275,12 @@ export const en: SiteContent = {
         ],
       },
     ],
-    specialityEyebrow: "Speciality Services",
+    work: {
+      eyebrow: "Our Work",
+      heading: "Thoughtfully designed homes across Singapore",
+      sub: "Every space is tailored to the people who call it home.",
+    },
+    specialityEyebrow:"Speciality Services",
     specialityHeading: "Designed for the way you live.",
     speciality: [
       {
@@ -418,7 +433,9 @@ export const en: SiteContent = {
       errorRequired: "This field is required.",
     },
     reassurance: {
-      body: "Most homeowners come to us with one concern: Can we trust our renovation?​ That's why Vika is built on clear contracts, milestone-based payments, and a full-refund guarantee—so you can renovate with confidence from day one..",
+      body: [
+        "Most homeowners come to us with one concern: Can we trust our renovation?​ That's why Vika is built on clear contracts, milestone-based payments, and a full-refund guarantee—so you can renovate with confidence from day one..",
+      ],
       icons: [
         "Full Refund if Delayed Over 1 Month",
         "5-Year Workmanship Warranty",

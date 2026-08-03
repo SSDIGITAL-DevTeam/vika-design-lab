@@ -152,9 +152,11 @@ export function Home({ content, lang }: ViewProps) {
       <Section bordered>
         <Reveal>
           <div className="mb-10">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              {home.usp.eyebrow}
-            </p>
+            {home.usp.eyebrow && (
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+                {home.usp.eyebrow}
+              </p>
+            )}
             <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
               {home.usp.heading}
             </h2>
