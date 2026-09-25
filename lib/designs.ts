@@ -11,14 +11,14 @@ const isSupportedLocale = (value: string): value is Locale =>
 
 const activeLocalesFromEnv = (): readonly Locale[] => {
   const raw = process.env.NEXT_PUBLIC_ACTIVE_LOCALES;
-  if (!raw) return [DEFAULT_LOCALE];
+  if (!raw) return SUPPORTED_LOCALES;
 
   const locales = raw
     .split(",")
     .map((value) => value.trim().toLowerCase())
     .filter(isSupportedLocale);
 
-  return locales.length > 0 ? Array.from(new Set(locales)) : [DEFAULT_LOCALE];
+  return locales.length > 0 ? Array.from(new Set(locales)) : SUPPORTED_LOCALES;
 };
 
 // Active locales are the routes/switcher options currently exposed in the app.
