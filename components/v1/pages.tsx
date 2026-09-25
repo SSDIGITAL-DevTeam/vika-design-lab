@@ -1,4 +1,4 @@
-﻿import {
+import {
   CONTACT,
   buildWhatsAppLink,
   mapsEmbedSrc,
@@ -634,12 +634,14 @@ export function Recruitment({ content }: ViewProps) {
       <Section bordered>
         <div className="grid items-center gap-6 md:gap-8 md:grid-cols-[1fr_1.4fr]">
           <Reveal>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={RECRUITMENT_CULTURE_PHOTO}
-              alt={recruitment.cultureHeading}
-              className="aspect-4/3 w-full max-w-sm object-cover"
-            />
+            {RECRUITMENT_CULTURE_PHOTO && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={RECRUITMENT_CULTURE_PHOTO}
+                alt={recruitment.cultureHeading}
+                className="aspect-4/3 w-full max-w-sm object-cover"
+              />
+            )}
           </Reveal>
           <Reveal delay={120}>
             <h2 className="text-xl font-semibold text-ink sm:text-2xl lg:text-3xl">

@@ -207,15 +207,17 @@ export function PortfolioGrid({
           onClick={(e) => e.stopPropagation()}
         >
           {/* key={src} remounts on every photo change so the slide-in animation replays */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            key={src}
-            src={src ?? ""}
-            alt={album?.name ?? ""}
-            className={`block max-h-[88vh] max-w-[93vw] object-contain sm:max-w-[84vw] ${
-              direction > 0 ? "animate-slide-in-right" : "animate-slide-in-left"
-            }`}
-          />
+          {src && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              key={src}
+              src={src}
+              alt={album?.name ?? ""}
+              className={`block max-h-[88vh] max-w-[93vw] object-contain sm:max-w-[84vw] ${
+                direction > 0 ? "animate-slide-in-right" : "animate-slide-in-left"
+              }`}
+            />
+          )}
         </div>
 
         {/* Description — bottom left */}

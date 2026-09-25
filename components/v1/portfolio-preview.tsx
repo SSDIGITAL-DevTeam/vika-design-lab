@@ -29,7 +29,7 @@ export function PortfolioPreview({ toPortfolio, eyebrow, sub, cta }: PortfolioPr
   const [selected, setSelected] = useState<string | null>(null);
   // lastSrc persists the image src during the close animation so it doesn't
   // snap to blank while the overlay is still fading out.
-  const [lastSrc, setLastSrc] = useState("");
+  const [lastSrc, setLastSrc] = useState<string | null>(null);
 
   const open = useCallback((src: string) => {
     setLastSrc(src);
@@ -147,12 +147,14 @@ export function PortfolioPreview({ toPortfolio, eyebrow, sub, cta }: PortfolioPr
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={lastSrc}
-            alt=""
-            className="block max-h-[88vh] max-w-[92vw] object-contain shadow-2xl sm:max-w-[82vw]"
-          />
+          {lastSrc && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={lastSrc}
+              alt=""
+              className="block max-h-[88vh] max-w-[92vw] object-contain shadow-2xl sm:max-w-[82vw]"
+            />
+          )}
         </div>
       </div>
     </>
