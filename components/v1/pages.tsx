@@ -218,7 +218,7 @@ export function About({ content, lang }: ViewProps) {
         </Reveal>
       </Section>
 
-      {/* ── Meet Our Designers ─────────────────────────────────── */}
+      {/* ── Meet Our Designers (Temporarily hidden) ───────────────
       <Section bordered>
         <Reveal>
           <div className="mb-8">
@@ -267,6 +267,7 @@ export function About({ content, lang }: ViewProps) {
           ))}
         </div>
       </Section>
+      ──────────────────────────────────────────────────────────── */}
 
       {/* ── CTA ───────────────────────────────────────────────── */}
       <CtaSection
